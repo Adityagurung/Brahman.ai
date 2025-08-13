@@ -18,3 +18,4 @@ streamlit==1.39.0
 langchain-openai
 pyyaml==6.0.2
 python-dotenv==1.0.1
+chonkie[all]
