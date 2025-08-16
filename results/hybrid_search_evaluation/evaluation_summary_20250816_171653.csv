@@ -1,0 +1,5 @@
+Method,Hit Rate @1,Hit Rate @3,Hit Rate @5,Mean Reciprocal Rank,Avg Search Time (ms),Failed Queries,Total Queries
+BM25 Sparse,0.180,0.300,0.360,0.246,23.4,0,100
+Dense Semantic,0.190,0.380,0.460,0.291,26.4,0,100
+Multi-stage (Dense→Sparse),0.180,0.300,0.360,0.246,34.8,0,100
+RRF Hybrid,0.220,0.350,0.460,0.298,38.0,0,100
