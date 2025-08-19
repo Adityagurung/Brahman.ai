@@ -1,0 +1,25 @@
+# Grafana Datasource Configuration for PostgreSQL
+apiVersion: 1
+
+datasources:
+  - name: PostgreSQL
+    type: postgres
+    access: proxy
+    url: postgres:5432
+    database: brahman
+    user: admin
+    password: admin
+    sslmode: disable
+    maxOpenConns: 100
+    maxIdleConns: 100
+    maxIdleConnsAuto: true
+    connMaxLifetime: 14400
+    postgresVersion: 1300
+    timescaledb: false
+    jsonData:
+      sslmode: "disable"
+      maxOpenConns: 100
+      maxIdleConns: 100
+      connMaxLifetime: 14400
+    secureJsonData:
+      password: "admin"

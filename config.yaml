@@ -7,7 +7,7 @@ database:
   postgres:
     host: "localhost"
     port: 5432
-    database: "travelbuddy"
+    database: "brahman"
     username: "admin"
     password: "admin"
     
@@ -15,7 +15,7 @@ database:
   elasticsearch:
     host: "localhost"
     port: 9200
-    index_name: "travel_documents"
+    index_name: "travel_docs"
     timeout: 30
 
 # Embedding Model Configuration
@@ -32,18 +32,11 @@ embedding:
 
 # Large Language Model Configuration
 llm:
-  # Groq settings
-  provider: "groq"
-  model_name: "llama3-8b-8192"  # or "mixtral-8x7b-32768"
+  # Open AI settings
+  provider: "openai"
+  model_name: "gpt-3.5-turbo"  
   temperature: 0.3
-  max_tokens: 1000
-  top_p: 0.9
-  
-  # Fallback to OpenAI if Groq fails
-  fallback:
-    provider: "openai"
-    model_name: "gpt-3.5-turbo"
-    temperature: 0.3
+
 
 # Document Processing Configuration
 document_processing:
@@ -73,14 +66,8 @@ rag:
 # Travel Domain Specific Settings
 travel:
   # Supported regions/countries for recommendations
-  supported_regions:
-    - "Southeast Asia"
-    - "Thailand" 
-    - "Vietnam"
-    - "Indonesia"
-    - "Malaysia"
-    - "Singapore"
-    - "Philippines"
+  supported_region:
+    - "India"
   
   # Travel categories for better organization
   categories:

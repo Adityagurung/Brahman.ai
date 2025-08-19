@@ -6,8 +6,6 @@ langchain-community
 transformers==4.44.2
 sentence-transformers==3.0.1
 langchain_huggingface
-chromadb==0.5.3
-langchain-chroma
 openai==1.43.0
 minsearch==0.0.2
 psycopg2==2.9.9
@@ -18,4 +16,9 @@ streamlit==1.39.0
 langchain-openai
 pyyaml==6.0.2
 python-dotenv==1.0.1
-chonkie[all]
+matplotlib>=3.7.0
+seaborn>=0.12.0
+qdrant-client[fastembed]>=1.6.0
+numpy>=1.24.0
+pandas>=2.0.0
+python-multipart>=0.0.6
