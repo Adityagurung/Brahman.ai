@@ -3,7 +3,7 @@ import streamlit as st
 import time
 import uuid
 from rag import get_answer
-from database import (
+from db import (
     save_conversation,
     save_feedback,
     get_recent_conversations,
