@@ -1,4 +1,5 @@
 # rag.py - RAG Logic Module
+
 import os
 import time
 import json
@@ -29,7 +30,7 @@ def qdrant_search(query: str, search_type: str = "semantic", limit: int = 5) -> 
     
     Args:
         query: Search query
-        search_type: "semantic" or "hybrid" 
+        search_type: "semantic" or "hybrid"
         limit: Number of results to return
     
     Returns:
@@ -77,7 +78,7 @@ def qdrant_search(query: str, search_type: str = "semantic", limit: int = 5) -> 
                             text=query,
                             model="Qdrant/bm25"
                         ),
-                        using="bm25", 
+                        using="bm25",
                         limit=(5 * limit)
                     )
                 ],
@@ -97,7 +98,7 @@ def qdrant_search(query: str, search_type: str = "semantic", limit: int = 5) -> 
                 })
         
         return search_results
-        
+    
     except Exception as e:
         print(f"Search error: {e}")
         return []
@@ -109,18 +110,19 @@ def build_prompt(query: str, search_results: List[Dict]) -> str:
     Args:
         query: User question
         search_results: Retrieved documents
-        
+    
     Returns:
         Formatted prompt string
     """
     prompt_template = """
 You're a travel assistant bot that helps users plan their itinerary and discover amazing places to visit.
+
 Answer the QUESTION based on the CONTEXT from the travel database.
 Use only the facts from the CONTEXT when answering the QUESTION.
 
 When answering, consider:
 - Must-visit tourist attractions and landmarks
-- Cultural experiences and local traditions  
+- Cultural experiences and local traditions
 - Historical significance of places
 - Best times to visit and travel tips
 - Local cuisine and specialties (if mentioned in context)
@@ -128,7 +130,7 @@ When answering, consider:
 
 QUESTION: {question}
 
-CONTEXT: 
+CONTEXT:
 {context}
 """.strip()
 
@@ -137,7 +139,6 @@ CONTEXT:
         location = doc.get('location', 'Unknown')
         content = doc.get('content', doc.get('text', ''))  # Handle both content and text fields
         context = context + f"location: {location}\ncontent: {content}\n\n"
-    
     
     return prompt_template.format(question=query, context=context).strip()
 
@@ -148,7 +149,7 @@ def llm(prompt: str, model_choice: str) -> Dict[str, Any]:
     Args:
         prompt: Input prompt
         model_choice: Model to use (ollama/phi3, openai/gpt-3.5-turbo, etc.)
-        
+    
     Returns:
         Dictionary with answer, tokens, and response_time
     """
@@ -180,7 +181,7 @@ def llm(prompt: str, model_choice: str) -> Dict[str, Any]:
                 'completion_tokens': response.usage.completion_tokens,
                 'total_tokens': response.usage.total_tokens
             }
-            
+        
         else:
             raise ValueError(f"Unknown model choice: {model_choice}")
             
@@ -205,7 +206,7 @@ def evaluate_relevance(question: str, answer: str) -> Dict[str, Any]:
     Args:
         question: Original question
         answer: Generated answer
-        
+    
     Returns:
         Dictionary with relevance score and explanation
     """
@@ -224,8 +225,8 @@ Please analyze the content and context of the generated answer in relation to th
 and provide your evaluation in parsable JSON without using code blocks:
 
 {{
-"Relevance": "NON_RELEVANT" | "PARTLY_RELEVANT" | "RELEVANT",
-"Explanation": "[Provide a brief explanation for your evaluation]"
+    "Relevance": "NON_RELEVANT" | "PARTLY_RELEVANT" | "RELEVANT",
+    "Explanation": "[Provide a brief explanation for your evaluation]"
 }}
 """.strip()
 
@@ -254,17 +255,16 @@ def calculate_openai_cost(model_choice: str, tokens: Dict) -> float:
     Args:
         model_choice: Model used
         tokens: Token usage dictionary
-        
+    
     Returns:
         Cost in USD
     """
     openai_cost = 0
-    
     if model_choice == 'openai/gpt-3.5-turbo':
         openai_cost = (tokens['prompt_tokens'] * 0.0015 + tokens['completion_tokens'] * 0.002) / 1000
     elif model_choice in ['openai/gpt-4o', 'openai/gpt-4o-mini']:
         openai_cost = (tokens['prompt_tokens'] * 0.03 + tokens['completion_tokens'] * 0.06) / 1000
-        
+    
     return openai_cost
 
 def get_answer(query: str, model_choice: str, search_type: str = "semantic") -> Dict[str, Any]:
@@ -275,7 +275,7 @@ def get_answer(query: str, model_choice: str, search_type: str = "semantic") -> 
         query: User question
         model_choice: LLM model to use
         search_type: "semantic" or "hybrid"
-        
+    
     Returns:
         Dictionary with answer and metadata
     """

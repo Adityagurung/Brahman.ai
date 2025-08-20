@@ -21,7 +21,7 @@ def setup_qdrant():
     qdrant_url = os.getenv("QDRANT_URL", "http://localhost:6333")
     client = QdrantClient(qdrant_url)
     
-    collection_name = "travel-documents"
+    collection_name = "travel-docs"  # Fixed: consistent with rag.py
     
     try:
         # Delete existing collection if it exists
@@ -146,6 +146,18 @@ def generate_sample_data():
             "content": "Tamil Nadu offers diverse attractions from ancient temples in Madurai to hill stations like Ooty. Chennai is the capital and a major cultural center. The state is renowned for its Dravidian architecture and classical music tradition.",
             "location": "Tamil_Nadu", 
             "doc_id": "sample_003"
+        },
+        {
+            "id": "sample_004",
+            "content": "Kerala is known as God's Own Country, famous for its backwaters, hill stations like Munnar, and beautiful beaches in Kovalam. The state is renowned for Ayurvedic treatments and spice plantations in Thekkady.",
+            "location": "Kerala",
+            "doc_id": "sample_004"
+        },
+        {
+            "id": "sample_005",
+            "content": "Rajasthan is the land of kings with majestic forts and palaces. Jaipur is the Pink City, Udaipur is the City of Lakes, and Jaisalmer is famous for its golden sandstone architecture in the Thar Desert.",
+            "location": "Rajasthan",
+            "doc_id": "sample_005"
         }
     ]
     

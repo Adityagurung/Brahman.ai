@@ -1,4 +1,5 @@
-# database.py - PostgreSQL Database Module for RAG
+# db.py - PostgreSQL Database Module for RAG
+
 import os
 import psycopg2
 from psycopg2.extras import DictCursor
@@ -6,15 +7,16 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from typing import Dict, List, Optional, Any
 
-tz = ZoneInfo("India/Bengaluru")
+tz = ZoneInfo("Asia/Kolkata")
 
 def get_db_connection():
-    """Get database connection"""
+    """Create database connection using environment variables"""
     return psycopg2.connect(
-        host=os.getenv("POSTGRES_HOST", "postgres"),
-        database=os.getenv("POSTGRES_DB", "rag_assistant"),
-        user=os.getenv("POSTGRES_USER", "your_username"),
-        password=os.getenv("POSTGRES_PASSWORD", "your_password"),
+        host=os.getenv("POSTGRES_HOST", "localhost"),
+        database=os.getenv("POSTGRES_DB", "brahman"),
+        user=os.getenv("POSTGRES_USER", "admin"),
+        password=os.getenv("POSTGRES_PASSWORD", "admin"),
+        port=int(os.getenv("POSTGRES_PORT", 5432))
     )
 
 def init_db():
@@ -90,7 +92,7 @@ def save_conversation(
                 INSERT INTO conversations
                 (id, question, answer, model_used, search_type, response_time, relevance,
                  relevance_explanation, prompt_tokens, completion_tokens, total_tokens,
-                 eval_prompt_tokens, eval_completion_tokens, eval_total_tokens, 
+                 eval_prompt_tokens, eval_completion_tokens, eval_total_tokens,
                  openai_cost, search_results_count, timestamp)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, COALESCE(%s, CURRENT_TIMESTAMP))
                 """,
@@ -112,15 +114,15 @@ def save_conversation(
                     answer_data["openai_cost"],
                     answer_data["search_results_count"],
                     timestamp,
-                ),
+                )
             )
             conn.commit()
     finally:
         conn.close()
 
 def save_feedback(
-    conversation_id: str, 
-    feedback: int, 
+    conversation_id: str,
+    feedback: int,
     timestamp: Optional[datetime] = None
 ) -> None:
     """
@@ -152,7 +154,7 @@ def get_recent_conversations(limit: int = 5, relevance: Optional[str] = None) ->
     Args:
         limit: Maximum number of conversations to return
         relevance: Optional relevance filter ("RELEVANT", "PARTLY_RELEVANT", "NON_RELEVANT")
-        
+    
     Returns:
         List of conversation dictionaries
     """
@@ -167,10 +169,10 @@ def get_recent_conversations(limit: int = 5, relevance: Optional[str] = None) ->
             
             if relevance:
                 query += f" WHERE c.relevance = '{relevance}'"
-                
-            query += " ORDER BY c.timestamp DESC LIMIT %s"
             
+            query += " ORDER BY c.timestamp DESC LIMIT %s"
             cur.execute(query, (limit,))
+            
             return cur.fetchall()
     finally:
         conn.close()
@@ -192,6 +194,7 @@ def get_feedback_stats() -> Dict[str, int]:
                 FROM feedback
             """)
             result = cur.fetchone()
+            
             return {
                 'thumbs_up': result['thumbs_up'] or 0,
                 'thumbs_down': result['thumbs_down'] or 0
@@ -210,7 +213,7 @@ def get_model_usage_stats() -> List[Dict]:
     try:
         with conn.cursor(cursor_factory=DictCursor) as cur:
             cur.execute("""
-                SELECT 
+                SELECT
                     model_used,
                     COUNT(*) as usage_count,
                     AVG(response_time) as avg_response_time,
@@ -236,7 +239,7 @@ def get_search_type_stats() -> List[Dict]:
     try:
         with conn.cursor(cursor_factory=DictCursor) as cur:
             cur.execute("""
-                SELECT 
+                SELECT
                     search_type,
                     COUNT(*) as usage_count,
                     AVG(response_time) as avg_response_time,
@@ -261,7 +264,7 @@ def get_relevance_stats() -> List[Dict]:
     try:
         with conn.cursor(cursor_factory=DictCursor) as cur:
             cur.execute("""
-                SELECT 
+                SELECT
                     relevance,
                     COUNT(*) as count,
                     COUNT(*) * 100.0 / SUM(COUNT(*)) OVER() as percentage
@@ -285,7 +288,7 @@ def get_hourly_stats() -> List[Dict]:
     try:
         with conn.cursor(cursor_factory=DictCursor) as cur:
             cur.execute("""
-                SELECT 
+                SELECT
                     DATE_TRUNC('hour', timestamp) as hour,
                     COUNT(*) as conversation_count,
                     AVG(response_time) as avg_response_time,
@@ -296,5 +299,43 @@ def get_hourly_stats() -> List[Dict]:
                 ORDER BY hour DESC
             """)
             return cur.fetchall()
+    finally:
+        conn.close()
+
+def get_total_conversations() -> int:
+    """Get total number of conversations"""
+    conn = get_db_connection()
+    try:
+        with conn.cursor() as cur:
+            cur.execute("SELECT COUNT(*) FROM conversations")
+            return cur.fetchone()[0]
+    finally:
+        conn.close()
+
+def get_avg_response_time() -> float:
+    """Get average response time"""
+    conn = get_db_connection()
+    try:
+        with conn.cursor() as cur:
+            cur.execute("SELECT AVG(response_time) FROM conversations")
+            result = cur.fetchone()[0]
+            return result or 0.0
+    finally:
+        conn.close()
+
+def get_avg_relevance_score() -> str:
+    """Get average relevance (most common relevance)"""
+    conn = get_db_connection()
+    try:
+        with conn.cursor() as cur:
+            cur.execute("""
+                SELECT relevance, COUNT(*) as count
+                FROM conversations
+                GROUP BY relevance
+                ORDER BY count DESC
+                LIMIT 1
+            """)
+            result = cur.fetchone()
+            return result[0] if result else "UNKNOWN"
     finally:
         conn.close()

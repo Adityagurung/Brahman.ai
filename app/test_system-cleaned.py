@@ -10,7 +10,7 @@ def test_database_connection():
     """Test PostgreSQL database connection"""
     print("🧪 Testing Database Connection...")
     try:
-        from db import get_db_connection, init_db
+        from db import get_db_connection
         
         conn = get_db_connection()
         conn.close()

@@ -11,6 +11,7 @@ services:
     volumes:
       - qdrant_storage:/qdrant/storage
     environment:
+      - QDRANT_URL=http://qdrant:${QDRANT_PORT:-6333}
       - QDRANT__SERVICE__HTTP_PORT=6333
       - QDRANT__SERVICE__GRPC_PORT=6334
 
@@ -22,15 +23,29 @@ services:
       - ollama_data:/root/.ollama
     ports:
       - "${OLLAMA_PORT:-11434}:11434"
+    environment:
+      - OLLAMA_URL=http://ollama:${OLLAMA_PORT:-11434}/v1/
+
+  # OpenAI 
+  OpenAI:
+    image: openai/openai
+    container_name: openai
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    ports:
+      - "${OPENAI_PORT:-5000}:5000"
+
+
 
   # PostgreSQL Database
   postgres:
     image: postgres:13
     container_name: postgres-rag
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: brahman
+      - POSTGRES_HOST=postgres
+      - POSTGRES_DB=${POSTGRES_DB:-brahman}                    
+      - POSTGRES_USER=${POSTGRES_USER:-admin}                  
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-admin} 
     ports:
       - "5432:5432"
     volumes:
@@ -89,9 +104,3 @@ volumes:
       - GF_INSTALL_PLUGINS=grafana-piechart-panel
     depends_on:
       - postgres
-
-volumes:
-  qdrant_storage:
-  ollama_data:
-  postgres_data:
-  grafana_data:
