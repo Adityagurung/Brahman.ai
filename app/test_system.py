@@ -112,7 +112,7 @@ def test_ollama_model():
         ollama_client = OpenAI(base_url=ollama_url, api_key="ollama")
         
         response = ollama_client.chat.completions.create(
-            model="phi3",
+            model="phi3:mini",
             messages=[{"role": "user", "content": "Hello, this is a test."}]
         )
         
