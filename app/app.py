@@ -2,6 +2,7 @@
 import streamlit as st
 import time
 import uuid
+from dotenv import load_dotenv
 from rag import get_answer
 from db import (
     save_conversation,
@@ -10,6 +11,8 @@ from db import (
     get_feedback_stats,
     get_model_usage_stats
 )
+
+load_dotenv()
 
 def print_log(message):
     """Print log message"""
