@@ -39,7 +39,7 @@ services:
   # Streamlit Application - FIXED CONFIGURATION
   streamlit:
     build:
-      context: .
+      context: ./app
       dockerfile: Dockerfile
     container_name: streamlit
     environment:
