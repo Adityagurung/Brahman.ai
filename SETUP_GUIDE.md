@@ -5,29 +5,30 @@ This guide provides step-by-step instructions to set up your complete RAG Travel
 
 ## 📁 Project Structure
 ```
-rag-travel-assistant/
-├── app.py                          # Streamlit UI with feedback
-├── rag.py                          # RAG logic module
-├── database.py                     # PostgreSQL interactions
-├── setup.py                        # System initialization
-├── test_system.py                  # System testing
-├── requirements.txt                # Python dependencies
-├── docker-compose.yaml             # Docker orchestration
-├── Dockerfile                      # Streamlit container
-├── .env.template                   # Environment template
-├── .env                           # Your environment (create this)
-├── README.md                      # Documentation
-├── grafana/                       # Grafana configuration
-│   ├── provisioning/
-│   │   ├── datasources/
-│   │   │   └── postgres.yaml
-│   │   └── dashboards/
-│   │       └── dashboard.yaml
-│   └── dashboards/
-│       └── rag-monitoring.json
-└── data/processed/                # Your documents (optional)
-    └── documents-with-ids.json    # From your notebooks
-```
+Brahman.ai/
+|
+|_app 
+|  ├── app.py                          
+|  ├── rag.py                         
+|  ├── database.py                    
+|  ├── setup.py                       
+|  |__ test_system.py                   
+├── requirements.txt               
+├── docker-compose.yaml            
+├── Dockerfile                     
+├── .env.template                  
+├── .env                           
+├── README.md                      
+├── grafana/                       
+│   ├── dashboard.json
+│   └── init.py
+│── data/processed/                
+│    └── documents-with-ids.json    
+│-----notebooks
+         └── all jupyter notebooks.....
+
+
+
 
 ## 🚀 Step-by-Step Setup
 
