@@ -2,7 +2,6 @@
 import streamlit as st
 import time
 import uuid
-from dotenv import load_dotenv
 from rag import get_answer
 from db import (
     save_conversation,
@@ -12,7 +11,6 @@ from db import (
     get_model_usage_stats
 )
 
-load_dotenv()
 
 def print_log(message):
     """Print log message"""
@@ -106,7 +104,8 @@ def main():
 
                 # Save conversation to database
                 print_log("Saving conversation to database")
-                save_conversation(st.session_state.conversation_id, user_input, answer_data)
+                save_conversation(str(uuid.uuid4()), user_input, answer_data)
+                #save_conversation(st.session_state.conversation_id, user_input, answer_data)
                 print_log("Conversation saved successfully")
 
                 # Feedback section
@@ -140,7 +139,8 @@ def main():
                 if st.button("🔄 Ask Another Question"):
                     st.session_state.conversation_id = str(uuid.uuid4())
                     st.session_state.feedback_given = False
-                    st.experimental_rerun()
+                    st.rerun()
+                    #st.experimental_rerun()
 
             else:
                 st.warning("Please enter a question before submitting.")
