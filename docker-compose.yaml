@@ -39,7 +39,7 @@ services:
   # Streamlit Application - FIXED CONFIGURATION
   streamlit:
     build:
-      context: ./app
+      context: .
       dockerfile: Dockerfile
     container_name: streamlit
     environment:
@@ -60,9 +60,7 @@ services:
       - qdrant
       - ollama
       - postgres
-    # Remove volume mount since we're copying files in Dockerfile
-    # volumes:
-    #   - .:/app
+
 
   # PgAdmin
   pgadmin:
