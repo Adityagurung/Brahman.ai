@@ -26,17 +26,6 @@ services:
     environment:
       - OLLAMA_URL=http://ollama:${OLLAMA_PORT:-11434}/v1/
 
-  # OpenAI 
-  OpenAI:
-    image: openai/openai
-    container_name: openai
-    environment:
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-    ports:
-      - "${OPENAI_PORT:-5000}:5000"
-
-
-
   # PostgreSQL Database
   postgres:
     image: postgres:13
@@ -51,6 +40,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  # PgAdmin for Database Management
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin
@@ -61,9 +51,8 @@ services:
       - "8080:80"
     depends_on:
       - postgres
-
-volumes:
-  postgres_data:
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
 
   # Streamlit Application
   streamlit:
@@ -75,9 +64,9 @@ volumes:
       - QDRANT_URL=http://qdrant:${QDRANT_PORT:-6333}
       - OLLAMA_URL=http://ollama:${OLLAMA_PORT:-11434}/v1/
       - POSTGRES_HOST=postgres
-      - POSTGRES_DB=${POSTGRES_DB:-rag_assistant}
-      - POSTGRES_USER=${POSTGRES_USER:-rag_user}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-rag_password}
+      - POSTGRES_DB=${POSTGRES_DB:-brahman}
+      - POSTGRES_USER=${POSTGRES_USER:-admin}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-admin}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - PYTHONPATH=/app
     ports:
@@ -104,3 +93,10 @@ volumes:
       - GF_INSTALL_PLUGINS=grafana-piechart-panel
     depends_on:
       - postgres
+
+volumes:
+  postgres_data:
+  qdrant_storage:
+  ollama_data:
+  grafana_data:
+  pgadmin_data:
