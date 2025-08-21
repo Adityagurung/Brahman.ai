@@ -1,0 +1,76 @@
+model,question_index,cosine_similarity,question,document_id
+gpt-3.5-turbo,0,0.32164168,Do foreign travelers need a visa and passport to visit Karnataka?,7adcc584
+gpt-3.5-turbo,1,0.58120424,What is the historical importance of Penukonda in the context of the Vijayanagara empire?,032385d9
+gpt-3.5-turbo,2,0.90424675,What are the main cultural and spiritual centers to visit in Andhra Pradesh?,dceae12c
+gpt-3.5-turbo,3,0.70130014,Which species of animals and birds might I encounter in Bandipur National Park?,2ffbfa3d
+gpt-3.5-turbo,4,0.75405425,What are some must-visit cultural and natural attractions in Karnataka?,56d1a83b
+gpt-3.5-turbo,5,0.5988228,Are there any special cultural events or festivals a visitor should try to experience while in Karnataka?,df2f68d2
+gpt-3.5-turbo,6,0.585924,How is Andhra Pradesh’s dal or pappu different from dals in other regions?,d7f31dff
+gpt-3.5-turbo,7,0.29808167,Which beaches and river confluences are popular tourist spots in Andhra Pradesh?,35012d81
+gpt-3.5-turbo,8,0.7719038,"Does the Karnataka State Tourism Development Corporation (KSTDC) manage hotels, and what types of accommodations do they offer?",fcd19dc9
+gpt-3.5-turbo,9,0.6559107,Are there any waterfalls in Karnataka that are associated with historical or religious significance?,5edc52cd
+gpt-3.5-turbo,10,0.3468333,During which months is the best time to visit Andhra Pradesh’s hill stations and forests?,18c12abb
+gpt-3.5-turbo,11,0.5573957,"Are there any required pre-booking procedures or permits needed for trekking in the Western Ghats region around Sakleshpur, Chikmagalur, and Coorg?",2e7798da
+gpt-3.5-turbo,12,0.4470983,"How can I get around within Bengaluru, including public transit and taxis?",9797a184
+gpt-3.5-turbo,13,0.43788654,How far is Sai Priya Beach Resort from Visakhapatnam Airport?,3ed17fb0
+gpt-3.5-turbo,14,0.57524335,Which city in Andhra Pradesh is known for having exotic beach resorts?,3ed17fb0
+gpt-3.5-turbo,15,0.56052756,What are the main options for booking long-distance bus tickets in Andhra Pradesh?,6971dd73
+gpt-3.5-turbo,16,0.41838723,What local language should I know basic phrases in when traveling across Karnataka?,cd773775
+gpt-3.5-turbo,17,0.6946308,Which city is currently the fastest-growing in Karnataka after Bangalore?,c75cb1f7
+gpt-3.5-turbo,18,0.5851116,"What are the entry fees for Indian and foreign tourists visiting Mysore Palace, and are children charged?",770e1a00
+gpt-3.5-turbo,19,0.3471985,What are the primary transportation options available to get around Karnataka?,07ac0187
+gpt-3.5-turbo,20,0.44681683,When is the best time to plan a trip to Andhra Pradesh to enjoy the weather and festivals?,dceae12c
+gpt-3.5-turbo,21,0.5464611,Are there guided tours or expert guides available for jungle trekking in Dandeli?,e86f4081
+gpt-3.5-turbo,22,0.5661882,Is honey used as a sweetener in any traditional beverages in Andhra Pradesh?,309d4546
+gpt-3.5-turbo,23,0.29065242,"What currency is used in Karnataka, and how can travelers exchange money upon arrival?",39a5628d
+gpt-3.5-turbo,24,0.58001983,"What types of breakfast foods can I expect to find in Karnataka, especially involving vada and idli?",81919206
+gpt-4o,0,0.32487056,Do foreign travelers need a visa and passport to visit Karnataka?,7adcc584
+gpt-4o,1,0.5334906,What is the historical importance of Penukonda in the context of the Vijayanagara empire?,032385d9
+gpt-4o,2,0.882609,What are the main cultural and spiritual centers to visit in Andhra Pradesh?,dceae12c
+gpt-4o,3,0.695166,Which species of animals and birds might I encounter in Bandipur National Park?,2ffbfa3d
+gpt-4o,4,0.7381751,What are some must-visit cultural and natural attractions in Karnataka?,56d1a83b
+gpt-4o,5,0.6090152,Are there any special cultural events or festivals a visitor should try to experience while in Karnataka?,df2f68d2
+gpt-4o,6,0.6195787,How is Andhra Pradesh’s dal or pappu different from dals in other regions?,d7f31dff
+gpt-4o,7,0.26790547,Which beaches and river confluences are popular tourist spots in Andhra Pradesh?,35012d81
+gpt-4o,8,0.793329,"Does the Karnataka State Tourism Development Corporation (KSTDC) manage hotels, and what types of accommodations do they offer?",fcd19dc9
+gpt-4o,9,0.81999373,Are there any waterfalls in Karnataka that are associated with historical or religious significance?,5edc52cd
+gpt-4o,10,0.3490286,During which months is the best time to visit Andhra Pradesh’s hill stations and forests?,18c12abb
+gpt-4o,11,0.6208652,"Are there any required pre-booking procedures or permits needed for trekking in the Western Ghats region around Sakleshpur, Chikmagalur, and Coorg?",2e7798da
+gpt-4o,12,0.43172598,"How can I get around within Bengaluru, including public transit and taxis?",9797a184
+gpt-4o,13,0.38970685,How far is Sai Priya Beach Resort from Visakhapatnam Airport?,3ed17fb0
+gpt-4o,14,0.77058214,Which city in Andhra Pradesh is known for having exotic beach resorts?,3ed17fb0
+gpt-4o,15,0.52873623,What are the main options for booking long-distance bus tickets in Andhra Pradesh?,6971dd73
+gpt-4o,16,0.3798113,What local language should I know basic phrases in when traveling across Karnataka?,cd773775
+gpt-4o,17,0.71239406,Which city is currently the fastest-growing in Karnataka after Bangalore?,c75cb1f7
+gpt-4o,18,0.49141428,"What are the entry fees for Indian and foreign tourists visiting Mysore Palace, and are children charged?",770e1a00
+gpt-4o,19,0.35062128,What are the primary transportation options available to get around Karnataka?,07ac0187
+gpt-4o,20,0.47534978,When is the best time to plan a trip to Andhra Pradesh to enjoy the weather and festivals?,dceae12c
+gpt-4o,21,0.62112635,Are there guided tours or expert guides available for jungle trekking in Dandeli?,e86f4081
+gpt-4o,22,0.52224183,Is honey used as a sweetener in any traditional beverages in Andhra Pradesh?,309d4546
+gpt-4o,23,0.32274532,"What currency is used in Karnataka, and how can travelers exchange money upon arrival?",39a5628d
+gpt-4o,24,0.65441394,"What types of breakfast foods can I expect to find in Karnataka, especially involving vada and idli?",81919206
+gpt-4o-mini,0,0.33703837,Do foreign travelers need a visa and passport to visit Karnataka?,7adcc584
+gpt-4o-mini,1,0.52940524,What is the historical importance of Penukonda in the context of the Vijayanagara empire?,032385d9
+gpt-4o-mini,2,0.83446807,What are the main cultural and spiritual centers to visit in Andhra Pradesh?,dceae12c
+gpt-4o-mini,3,0.48243737,Which species of animals and birds might I encounter in Bandipur National Park?,2ffbfa3d
+gpt-4o-mini,4,0.7644864,What are some must-visit cultural and natural attractions in Karnataka?,56d1a83b
+gpt-4o-mini,5,0.6724112,Are there any special cultural events or festivals a visitor should try to experience while in Karnataka?,df2f68d2
+gpt-4o-mini,6,0.5837432,How is Andhra Pradesh’s dal or pappu different from dals in other regions?,d7f31dff
+gpt-4o-mini,7,0.2772923,Which beaches and river confluences are popular tourist spots in Andhra Pradesh?,35012d81
+gpt-4o-mini,8,0.8787969,"Does the Karnataka State Tourism Development Corporation (KSTDC) manage hotels, and what types of accommodations do they offer?",fcd19dc9
+gpt-4o-mini,9,0.8386073,Are there any waterfalls in Karnataka that are associated with historical or religious significance?,5edc52cd
+gpt-4o-mini,10,0.35549152,During which months is the best time to visit Andhra Pradesh’s hill stations and forests?,18c12abb
+gpt-4o-mini,11,0.57318425,"Are there any required pre-booking procedures or permits needed for trekking in the Western Ghats region around Sakleshpur, Chikmagalur, and Coorg?",2e7798da
+gpt-4o-mini,12,0.48904505,"How can I get around within Bengaluru, including public transit and taxis?",9797a184
+gpt-4o-mini,13,0.41667235,How far is Sai Priya Beach Resort from Visakhapatnam Airport?,3ed17fb0
+gpt-4o-mini,14,0.7610856,Which city in Andhra Pradesh is known for having exotic beach resorts?,3ed17fb0
+gpt-4o-mini,15,0.4396689,What are the main options for booking long-distance bus tickets in Andhra Pradesh?,6971dd73
+gpt-4o-mini,16,0.3950417,What local language should I know basic phrases in when traveling across Karnataka?,cd773775
+gpt-4o-mini,17,0.71239406,Which city is currently the fastest-growing in Karnataka after Bangalore?,c75cb1f7
+gpt-4o-mini,18,0.50168353,"What are the entry fees for Indian and foreign tourists visiting Mysore Palace, and are children charged?",770e1a00
+gpt-4o-mini,19,0.35494965,What are the primary transportation options available to get around Karnataka?,07ac0187
+gpt-4o-mini,20,0.4848722,When is the best time to plan a trip to Andhra Pradesh to enjoy the weather and festivals?,dceae12c
+gpt-4o-mini,21,0.70839715,Are there guided tours or expert guides available for jungle trekking in Dandeli?,e86f4081
+gpt-4o-mini,22,0.57375205,Is honey used as a sweetener in any traditional beverages in Andhra Pradesh?,309d4546
+gpt-4o-mini,23,0.2999097,"What currency is used in Karnataka, and how can travelers exchange money upon arrival?",39a5628d
+gpt-4o-mini,24,0.572181,"What types of breakfast foods can I expect to find in Karnataka, especially involving vada and idli?",81919206
