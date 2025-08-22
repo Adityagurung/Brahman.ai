@@ -88,7 +88,7 @@ def main():
             # User input
             user_input = st.text_area(
                 "Enter your travel question:",
-                placeholder="e.g., What are the must-see places in Karnataka?\n\nTip: Press Ctrl+Enter to submit",
+                placeholder="e.g., What are the must-see places in India?",
                 height=100,
                 key="user_question"
             )
@@ -227,8 +227,8 @@ def main():
     st.markdown(
         """
         <div style='text-align: center'>
-            <p><em>Travel RAG Assistant - Powered by AI and Vector Search</em></p>
-            <p><small>💡 Tip: Use Ctrl+Enter in the question box to submit quickly!</small></p>
+            <p><em>Travel RAG Assistant - Powered by AI</em></p>
+            <p><small>💡 Tip: Use Ctrl+Enter in the question box to submit quickly!</small></p>-->
         </div>
         """, 
         unsafe_allow_html=True
