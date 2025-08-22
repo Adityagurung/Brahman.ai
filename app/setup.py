@@ -21,7 +21,7 @@ def setup_qdrant():
     qdrant_url = os.getenv("QDRANT_URL", "http://localhost:6333")
     client = QdrantClient(qdrant_url)
     
-    collection_name = "travel-docs"  # Fixed: consistent with rag.py
+    collection_name = "travel-docs"  
     
     try:
         # Delete existing collection if it exists
