@@ -213,4 +213,4 @@ __marimo__/
 qdrant_storage/
 
 #docker
-docker-compose.override.yaml
+docker-compose.dev.yaml
