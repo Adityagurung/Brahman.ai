@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  streamlit-rag:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      # Mount your local code directly (skip COPY step)
+      - ./:/app
+      # Optional: mount local pip cache to speed up installs
+      - ~/.cache/pip:/root/.cache/pip
+    environment:
+      - PYTHONPATH=/app
+      
+##Run with: docker-compose -f docker-compose.dev.yml up

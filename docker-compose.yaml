@@ -24,8 +24,8 @@ services:
     ports:
       - "11434:11434"
     environment:
-      - OLLAMA_HOST=0.0.0.0  # FIXED: Allow external connections
-      - OLLAMA_ORIGINS=*     # FIXED: Allow all origins
+      - OLLAMA_HOST=0.0.0.0  
+      - OLLAMA_ORIGINS=*     
     networks:
       - rag_network
     healthcheck:
