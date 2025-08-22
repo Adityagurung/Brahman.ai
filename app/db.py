@@ -1,4 +1,4 @@
-# db.py - PostgreSQL Database Module for RAG (ENHANCED WITH TIMEZONE DEBUGGING)
+# db.py - PostgreSQL Database Module for RAG (TIMEZONE FIXED)
 
 import os
 import psycopg2
@@ -9,7 +9,6 @@ from typing import Dict, List, Optional, Any
 
 # FIXED: Define the timezone for India (IST = UTC+5:30)
 tz = ZoneInfo("Asia/Kolkata")
-TZ_INFO = "Asia/Kolkata"  # Used in timezone check function
 
 def get_db_connection():
     """Create database connection using environment variables"""
@@ -21,74 +20,6 @@ def get_db_connection():
         port=int(os.getenv("POSTGRES_PORT", 5432))
     )
 
-def check_timezone():
-    """
-    Debug function to check timezone handling between Python and PostgreSQL
-    This helps diagnose timezone-related issues
-    """
-    print("🕒 TIMEZONE DEBUG CHECK:")
-    print("=" * 40)
-
-    conn = get_db_connection()
-    try:
-        with conn.cursor() as cur:
-            # 1. Check database timezone setting
-            cur.execute("SHOW timezone;")
-            db_timezone = cur.fetchone()[0]
-            print(f"📍 Database timezone: {db_timezone}")
-
-            # 2. Get current database time
-            cur.execute("SELECT current_timestamp;")
-            db_time_utc = cur.fetchone()[0]
-            print(f"🌍 Database current time (UTC): {db_time_utc}")
-
-            # 3. Convert database time to IST
-            db_time_local = db_time_utc.astimezone(tz)
-            print(f"🇮🇳 Database current time (IST): {db_time_local}")
-
-            # 4. Get Python current time in IST
-            py_time = datetime.now(tz)
-            print(f"🐍 Python current time (IST): {py_time}")
-
-            # 5. Test insert with proper timezone handling
-            print("\n🧪 Testing timezone insert/retrieval...")
-
-            # FIXED: Remove COALESCE and use direct timestamp
-            cur.execute("""
-                INSERT INTO conversations 
-                (id, question, answer, model_used, search_type, response_time, relevance, 
-                relevance_explanation, prompt_tokens, completion_tokens, total_tokens, 
-                eval_prompt_tokens, eval_completion_tokens, eval_total_tokens, 
-                openai_cost, search_results_count, timestamp)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                RETURNING timestamp;
-            """, 
-            ('test_tz', 'test question', 'test answer', 'test model', 'semantic',
-             1.0, 'RELEVANT', 'test explanation', 100, 50, 150, 10, 5, 15, 0.001, 1, py_time))
-
-            inserted_time = cur.fetchone()[0]
-            print(f"✅ Inserted time (UTC): {inserted_time}")
-            print(f"✅ Inserted time (IST): {inserted_time.astimezone(tz)}")
-
-            # 6. Retrieve and verify
-            cur.execute("SELECT timestamp FROM conversations WHERE id = 'test_tz';")
-            selected_time = cur.fetchone()[0]
-            print(f"📤 Retrieved time (UTC): {selected_time}")
-            print(f"📤 Retrieved time (IST): {selected_time.astimezone(tz)}")
-
-            # 7. Clean up the test entry
-            cur.execute("DELETE FROM conversations WHERE id = 'test_tz';")
-            conn.commit()
-
-            print("🧹 Test record cleaned up")
-            print("=" * 40)
-
-    except Exception as e:
-        print(f"❌ An error occurred during timezone check: {e}")
-        conn.rollback()
-    finally:
-        conn.close()
-
 def init_db():
     """Initialize database tables"""
     conn = get_db_connection()
@@ -97,7 +28,7 @@ def init_db():
             # Drop existing tables
             cur.execute("DROP TABLE IF EXISTS feedback")
             cur.execute("DROP TABLE IF EXISTS conversations")
-
+            
             # Create conversations table
             cur.execute("""
                 CREATE TABLE conversations (
@@ -120,7 +51,7 @@ def init_db():
                     timestamp TIMESTAMP WITH TIME ZONE NOT NULL
                 )
             """)
-
+            
             # Create feedback table
             cur.execute("""
                 CREATE TABLE feedback (
@@ -130,21 +61,11 @@ def init_db():
                     timestamp TIMESTAMP WITH TIME ZONE NOT NULL
                 )
             """)
-
+            
             conn.commit()
-            print("✅ Database initialized successfully")
-
-            # Run timezone check after initialization
-            print("\n🕒 Running timezone check...")
-
-    except Exception as e:
-        print(f"❌ Database initialization failed: {e}")
-        conn.rollback()
+            print("Database initialized successfully")
     finally:
         conn.close()
-
-    # Run timezone check as separate connection
-    check_timezone()
 
 def save_conversation(
     conversation_id: str,
@@ -163,9 +84,9 @@ def save_conversation(
     """
     if timestamp is None:
         timestamp = datetime.now(tz)  # IST timezone
-
+    
     print(f"💾 Saving conversation with IST timestamp: {timestamp}")
-
+    
     conn = get_db_connection()
     try:
         with conn.cursor() as cur:
@@ -219,10 +140,10 @@ def save_feedback(
     """
     if timestamp is None:
         timestamp = datetime.now(tz)  # IST timezone
-
+    
     print(f"👍 Saving feedback with IST timestamp: {timestamp}")
     print(f"🔗 Conversation ID: {conversation_id}, Feedback: {feedback}")
-
+    
     conn = get_db_connection()
     try:
         with conn.cursor() as cur:
@@ -260,10 +181,10 @@ def get_recent_conversations(limit: int = 5, relevance: Optional[str] = None) ->
             if relevance:
                 query += f" WHERE c.relevance = '{relevance}'"
             query += " ORDER BY c.timestamp DESC LIMIT %s"
-
+            
             cur.execute(query, (limit,))
             results = cur.fetchall()
-
+            
             # Convert to regular dict and add IST timestamp
             conversations = []
             for row in results:
@@ -272,7 +193,7 @@ def get_recent_conversations(limit: int = 5, relevance: Optional[str] = None) ->
                 if conv_dict['timestamp']:
                     conv_dict['timestamp_display'] = conv_dict['timestamp'].astimezone(tz)
                 conversations.append(conv_dict)
-
+                
             return conversations
     finally:
         conn.close()
