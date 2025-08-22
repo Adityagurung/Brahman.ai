@@ -7,6 +7,8 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from typing import Dict, List, Optional, Any
 
+TZ_INFO = os.getenv("TZ", "India/Kolkata")
+tz = ZoneInfo(TZ_INFO)
 
 def get_db_connection():
     """Create database connection using environment variables"""
