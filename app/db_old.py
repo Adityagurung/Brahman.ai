@@ -1,4 +1,4 @@
-# db.py - PostgreSQL Database Module for RAG (ENHANCED WITH TIMEZONE DEBUGGING)
+# db.py - PostgreSQL Database Module for RAG
 
 import os
 import psycopg2
@@ -7,9 +7,9 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from typing import Dict, List, Optional, Any
 
-# FIXED: Define the timezone for India (IST = UTC+5:30)
 tz = ZoneInfo("Asia/Kolkata")
-TZ_INFO = "Asia/Kolkata"  # Used in timezone check function
+TZ_INFO = "Asia/Kolkata"
+
 
 def get_db_connection():
     """Create database connection using environment variables"""
@@ -21,74 +21,6 @@ def get_db_connection():
         port=int(os.getenv("POSTGRES_PORT", 5432))
     )
 
-def check_timezone():
-    """
-    Debug function to check timezone handling between Python and PostgreSQL
-    This helps diagnose timezone-related issues
-    """
-    print("🕒 TIMEZONE DEBUG CHECK:")
-    print("=" * 40)
-
-    conn = get_db_connection()
-    try:
-        with conn.cursor() as cur:
-            # 1. Check database timezone setting
-            cur.execute("SHOW timezone;")
-            db_timezone = cur.fetchone()[0]
-            print(f"📍 Database timezone: {db_timezone}")
-
-            # 2. Get current database time
-            cur.execute("SELECT current_timestamp;")
-            db_time_utc = cur.fetchone()[0]
-            print(f"🌍 Database current time (UTC): {db_time_utc}")
-
-            # 3. Convert database time to IST
-            db_time_local = db_time_utc.astimezone(tz)
-            print(f"🇮🇳 Database current time (IST): {db_time_local}")
-
-            # 4. Get Python current time in IST
-            py_time = datetime.now(tz)
-            print(f"🐍 Python current time (IST): {py_time}")
-
-            # 5. Test insert with proper timezone handling
-            print("\n🧪 Testing timezone insert/retrieval...")
-
-            # FIXED: Remove COALESCE and use direct timestamp
-            cur.execute("""
-                INSERT INTO conversations 
-                (id, question, answer, model_used, search_type, response_time, relevance, 
-                relevance_explanation, prompt_tokens, completion_tokens, total_tokens, 
-                eval_prompt_tokens, eval_completion_tokens, eval_total_tokens, 
-                openai_cost, search_results_count, timestamp)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                RETURNING timestamp;
-            """, 
-            ('test_tz', 'test question', 'test answer', 'test model', 'semantic',
-             1.0, 'RELEVANT', 'test explanation', 100, 50, 150, 10, 5, 15, 0.001, 1, py_time))
-
-            inserted_time = cur.fetchone()[0]
-            print(f"✅ Inserted time (UTC): {inserted_time}")
-            print(f"✅ Inserted time (IST): {inserted_time.astimezone(tz)}")
-
-            # 6. Retrieve and verify
-            cur.execute("SELECT timestamp FROM conversations WHERE id = 'test_tz';")
-            selected_time = cur.fetchone()[0]
-            print(f"📤 Retrieved time (UTC): {selected_time}")
-            print(f"📤 Retrieved time (IST): {selected_time.astimezone(tz)}")
-
-            # 7. Clean up the test entry
-            cur.execute("DELETE FROM conversations WHERE id = 'test_tz';")
-            conn.commit()
-
-            print("🧹 Test record cleaned up")
-            print("=" * 40)
-
-    except Exception as e:
-        print(f"❌ An error occurred during timezone check: {e}")
-        conn.rollback()
-    finally:
-        conn.close()
-
 def init_db():
     """Initialize database tables"""
     conn = get_db_connection()
@@ -97,7 +29,7 @@ def init_db():
             # Drop existing tables
             cur.execute("DROP TABLE IF EXISTS feedback")
             cur.execute("DROP TABLE IF EXISTS conversations")
-
+            
             # Create conversations table
             cur.execute("""
                 CREATE TABLE conversations (
@@ -120,7 +52,7 @@ def init_db():
                     timestamp TIMESTAMP WITH TIME ZONE NOT NULL
                 )
             """)
-
+            
             # Create feedback table
             cur.execute("""
                 CREATE TABLE feedback (
@@ -130,21 +62,11 @@ def init_db():
                     timestamp TIMESTAMP WITH TIME ZONE NOT NULL
                 )
             """)
-
+            
             conn.commit()
-            print("✅ Database initialized successfully")
-
-            # Run timezone check after initialization
-            print("\n🕒 Running timezone check...")
-
-    except Exception as e:
-        print(f"❌ Database initialization failed: {e}")
-        conn.rollback()
+            print("Database initialized successfully")
     finally:
         conn.close()
-
-    # Run timezone check as separate connection
-    check_timezone()
 
 def save_conversation(
     conversation_id: str,
@@ -153,23 +75,20 @@ def save_conversation(
     timestamp: Optional[datetime] = None
 ) -> None:
     """
-    Save conversation to database with proper timezone handling
-
+    Save conversation to database
+    
     Args:
         conversation_id: Unique conversation identifier
         question: User question
         answer_data: Dictionary containing answer and metadata
-        timestamp: Optional timestamp, defaults to now in IST
+        timestamp: Optional timestamp, defaults to now
     """
     if timestamp is None:
-        timestamp = datetime.now(tz)  # IST timezone
-
-    print(f"💾 Saving conversation with IST timestamp: {timestamp}")
-
+        timestamp = datetime.now(tz)
+    
     conn = get_db_connection()
     try:
         with conn.cursor() as cur:
-            # FIXED: Removed COALESCE - use direct timestamp parameter
             cur.execute(
                 """
                 INSERT INTO conversations
@@ -177,7 +96,7 @@ def save_conversation(
                  relevance_explanation, prompt_tokens, completion_tokens, total_tokens,
                  eval_prompt_tokens, eval_completion_tokens, eval_total_tokens,
                  openai_cost, search_results_count, timestamp)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, COALESCE(%s, CURRENT_TIMESTAMP))
                 """,
                 (
                     conversation_id,
@@ -196,11 +115,10 @@ def save_conversation(
                     answer_data["eval_total_tokens"],
                     answer_data["openai_cost"],
                     answer_data["search_results_count"],
-                    timestamp,  # Direct IST timestamp (PostgreSQL converts to UTC automatically)
+                    timestamp,
                 )
             )
             conn.commit()
-            print(f"✅ Conversation saved successfully")
     finally:
         conn.close()
 
@@ -210,77 +128,61 @@ def save_feedback(
     timestamp: Optional[datetime] = None
 ) -> None:
     """
-    Save user feedback for a conversation with proper timezone handling
-
+    Save user feedback for a conversation
+    
     Args:
         conversation_id: Conversation ID to associate feedback with
         feedback: 1 for thumbs up, -1 for thumbs down
-        timestamp: Optional timestamp, defaults to now in IST
+        timestamp: Optional timestamp, defaults to now
     """
     if timestamp is None:
-        timestamp = datetime.now(tz)  # IST timezone
-
-    print(f"👍 Saving feedback with IST timestamp: {timestamp}")
-    print(f"🔗 Conversation ID: {conversation_id}, Feedback: {feedback}")
-
+        timestamp = datetime.now(tz)
+    
     conn = get_db_connection()
     try:
         with conn.cursor() as cur:
-            # FIXED: Removed COALESCE - use direct timestamp parameter
             cur.execute(
-                "INSERT INTO feedback (conversation_id, feedback, timestamp) VALUES (%s, %s, %s)",
+                "INSERT INTO feedback (conversation_id, feedback, timestamp) VALUES (%s, %s, COALESCE(%s, CURRENT_TIMESTAMP))",
                 (conversation_id, feedback, timestamp),
             )
             conn.commit()
-            print(f"✅ Feedback saved successfully")
     finally:
         conn.close()
 
 def get_recent_conversations(limit: int = 5, relevance: Optional[str] = None) -> List[Dict]:
     """
     Get recent conversations with optional relevance filter
-    Timestamps are automatically converted to display timezone by psycopg2
-
+    
     Args:
         limit: Maximum number of conversations to return
         relevance: Optional relevance filter ("RELEVANT", "PARTLY_RELEVANT", "NON_RELEVANT")
-
+    
     Returns:
-        List of conversation dictionaries with proper timezone display
+        List of conversation dictionaries
     """
     conn = get_db_connection()
     try:
         with conn.cursor(cursor_factory=DictCursor) as cur:
             query = """
-                SELECT c.*, f.feedback,
-                       c.timestamp AT TIME ZONE 'Asia/Kolkata' as timestamp_ist
+                SELECT c.*, f.feedback
                 FROM conversations c
                 LEFT JOIN feedback f ON c.id = f.conversation_id
             """
+            
             if relevance:
                 query += f" WHERE c.relevance = '{relevance}'"
+            
             query += " ORDER BY c.timestamp DESC LIMIT %s"
-
             cur.execute(query, (limit,))
-            results = cur.fetchall()
-
-            # Convert to regular dict and add IST timestamp
-            conversations = []
-            for row in results:
-                conv_dict = dict(row)
-                # Convert UTC timestamp to IST for display
-                if conv_dict['timestamp']:
-                    conv_dict['timestamp_display'] = conv_dict['timestamp'].astimezone(tz)
-                conversations.append(conv_dict)
-
-            return conversations
+            
+            return cur.fetchall()
     finally:
         conn.close()
 
 def get_feedback_stats() -> Dict[str, int]:
     """
     Get feedback statistics
-
+    
     Returns:
         Dictionary with thumbs_up and thumbs_down counts
     """
@@ -294,6 +196,7 @@ def get_feedback_stats() -> Dict[str, int]:
                 FROM feedback
             """)
             result = cur.fetchone()
+            
             return {
                 'thumbs_up': result['thumbs_up'] or 0,
                 'thumbs_down': result['thumbs_down'] or 0
@@ -302,7 +205,12 @@ def get_feedback_stats() -> Dict[str, int]:
         conn.close()
 
 def get_model_usage_stats() -> List[Dict]:
-    """Get model usage statistics for monitoring"""
+    """
+    Get model usage statistics for monitoring
+    
+    Returns:
+        List of dictionaries with model usage data
+    """
     conn = get_db_connection()
     try:
         with conn.cursor(cursor_factory=DictCursor) as cur:
@@ -323,7 +231,12 @@ def get_model_usage_stats() -> List[Dict]:
         conn.close()
 
 def get_search_type_stats() -> List[Dict]:
-    """Get search type usage statistics"""
+    """
+    Get search type usage statistics
+    
+    Returns:
+        List of dictionaries with search type data
+    """
     conn = get_db_connection()
     try:
         with conn.cursor(cursor_factory=DictCursor) as cur:
@@ -343,7 +256,12 @@ def get_search_type_stats() -> List[Dict]:
         conn.close()
 
 def get_relevance_stats() -> List[Dict]:
-    """Get relevance distribution statistics"""
+    """
+    Get relevance distribution statistics
+    
+    Returns:
+        List of dictionaries with relevance data
+    """
     conn = get_db_connection()
     try:
         with conn.cursor(cursor_factory=DictCursor) as cur:
@@ -362,20 +280,25 @@ def get_relevance_stats() -> List[Dict]:
         conn.close()
 
 def get_hourly_stats() -> List[Dict]:
-    """Get hourly conversation statistics for the last 24 hours"""
+    """
+    Get hourly conversation statistics for the last 24 hours
+    
+    Returns:
+        List of dictionaries with hourly data
+    """
     conn = get_db_connection()
     try:
         with conn.cursor(cursor_factory=DictCursor) as cur:
             cur.execute("""
                 SELECT
-                    DATE_TRUNC('hour', timestamp AT TIME ZONE 'Asia/Kolkata') as hour_ist,
+                    DATE_TRUNC('hour', timestamp) as hour,
                     COUNT(*) as conversation_count,
                     AVG(response_time) as avg_response_time,
                     SUM(total_tokens) as total_tokens
                 FROM conversations
                 WHERE timestamp >= NOW() - INTERVAL '24 hours'
-                GROUP BY DATE_TRUNC('hour', timestamp AT TIME ZONE 'Asia/Kolkata')
-                ORDER BY hour_ist DESC
+                GROUP BY DATE_TRUNC('hour', timestamp)
+                ORDER BY hour DESC
             """)
             return cur.fetchall()
     finally:
