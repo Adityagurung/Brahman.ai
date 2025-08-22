@@ -11,12 +11,14 @@ from db import (
     get_model_usage_stats
 )
 
+
 def print_log(message):
     """Print log message"""
     print(message, flush=True)
 
+
 def inject_custom_css():
-    """Inject custom CSS for the submit button design"""
+    """Inject enhanced custom CSS with all fixes"""
     st.markdown("""
     <style>
     /* Hide the default submit button */
@@ -24,78 +26,204 @@ def inject_custom_css():
         display: none;
     }
     
-    /* Custom submit button styles */
+    /* Enhanced form container */
+    .stForm {
+        border: none !important;
+        padding: 0 !important;
+        position: relative;
+    }
+    
+    /* Custom submit button container - positioned relative to form */
     .custom-submit-container {
         position: relative;
-        display: inline-block;
+        display: block;
         width: 100%;
     }
     
+    /* Enhanced custom submit button styles */
     .custom-submit-button {
         position: absolute;
-        right: 10px;
+        right: 8px;
         top: 50%;
         transform: translateY(-50%);
         width: 40px;
         height: 40px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: #20b2aa; /* TEAL color */
         border: none;
         border-radius: 50%;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 4px 12px rgba(32, 178, 170, 0.4);
         transition: all 0.3s ease;
         z-index: 1000;
+        pointer-events: auto;
     }
     
     .custom-submit-button:hover {
         transform: translateY(-50%) scale(1.1);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        box-shadow: 0 6px 20px rgba(32, 178, 170, 0.6);
+        background: #008b8b; /* Darker teal on hover */
     }
     
     .custom-submit-button:active {
         transform: translateY(-50%) scale(0.95);
+        background: #006666;
     }
     
+    /* Enhanced arrow - made longer and more prominent */
     .submit-arrow {
         width: 0;
         height: 0;
-        border-left: 8px solid white;
-        border-top: 6px solid transparent;
-        border-bottom: 6px solid transparent;
-        margin-left: 2px;
-        transform: rotate(-90deg); /* Pointing up */
+        border-left: 12px solid white; /* Increased from 8px to 12px */
+        border-top: 8px solid transparent; /* Increased from 6px to 8px */
+        border-bottom: 8px solid transparent; /* Increased from 6px to 8px */
+        margin-left: 3px; /* Increased margin for better centering */
+        transform: rotate(-90deg);
     }
     
-    /* Adjust textarea padding to make room for button */
+    /* Enhanced text area styling with proper padding for button */
     .stTextArea > div > div > textarea {
-        padding-right: 60px !important;
-    }
-    
-    /* Form styling */
-    .stForm {
-        border: none !important;
-        padding: 0 !important;
-    }
-    
-    /* Enhanced text area styling */
-    .stTextArea > div > div > textarea {
-        border-radius: 12px !important;
+        padding-right: 55px !important;
+        border-radius: 15px !important;
         border: 2px solid #e0e6ed !important;
         font-size: 16px !important;
         transition: all 0.3s ease !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
     }
     
     .stTextArea > div > div > textarea:focus {
-        border-color: #667eea !important;
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+        border-color: #20b2aa !important;
+        box-shadow: 0 0 0 3px rgba(32, 178, 170, 0.15) !important;
         outline: none !important;
+    }
+    
+    /* Enhanced feedback section styling */
+    .feedback-section {
+        background: linear-gradient(135deg, #f8f9ff 0%, #f0f8ff 100%);
+        padding: 20px;
+        border-radius: 15px;
+        border: 1px solid #e8f0fe;
+        margin-top: 20px;
+    }
+    
+    /* Fixed feedback buttons container */
+    .feedback-buttons-container {
+        display: flex;
+        gap: 15px;
+        align-items: flex-start;
+        min-height: 50px; /* Fixed height to prevent layout shifts */
+    }
+    
+    /* Enhanced feedback buttons */
+    .stButton > button {
+        border-radius: 25px !important;
+        border: 2px solid transparent !important;
+        font-weight: 600 !important;
+        transition: all 0.3s ease !important;
+        height: 45px !important;
+        min-width: 120px !important;
+    }
+    
+    /* Thumbs up button styling */
+    .feedback-buttons-container .stButton:nth-child(1) > button {
+        background: linear-gradient(135deg, #4CAF50, #45a049) !important;
+        color: white !important;
+    }
+    
+    .feedback-buttons-container .stButton:nth-child(1) > button:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4) !important;
+    }
+    
+    /* Thumbs down button styling */
+    .feedback-buttons-container .stButton:nth-child(2) > button {
+        background: linear-gradient(135deg, #f44336, #da190b) !important;
+        color: white !important;
+    }
+    
+    .feedback-buttons-container .stButton:nth-child(2) > button:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 15px rgba(244, 67, 54, 0.4) !important;
+    }
+    
+    /* Fixed feedback message container */
+    .feedback-message {
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+        flex: 1;
+    }
+    
+    /* Enhanced title styling */
+    .main-title {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+    
+    /* Enhanced metrics styling */
+    .metric-container {
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        border-left: 4px solid #20b2aa;
+        margin-bottom: 10px;
+    }
+    
+    /* Enhanced expander styling */
+    .streamlit-expanderHeader {
+        background-color: #f8f9ff !important;
+        border-radius: 10px !important;
+    }
+    
+    /* Enhanced sidebar */
+    .css-1d391kg {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+    
+    /* Loading spinner enhancement */
+    .stSpinner > div {
+        border-top-color: #20b2aa !important;
+    }
+    
+    /* Success message enhancement */
+    .stSuccess {
+        background-color: #e8f5e8 !important;
+        border-left: 5px solid #4CAF50 !important;
+        border-radius: 10px !important;
+    }
+    
+    /* Warning message enhancement */
+    .stWarning {
+        background-color: #fff3e0 !important;
+        border-left: 5px solid #ff9800 !important;
+        border-radius: 10px !important;
+    }
+    
+    /* Error message enhancement */
+    .stError {
+        background-color: #ffebee !important;
+        border-left: 5px solid #f44336 !important;
+        border-radius: 10px !important;
+    }
+    
+    /* Info message enhancement */
+    .stInfo {
+        background-color: #e3f2fd !important;
+        border-left: 5px solid #2196f3 !important;
+        border-radius: 10px !important;
     }
     </style>
     """, unsafe_allow_html=True)
+
 
 def main():
     print_log("Starting the RAG Travel Assistant application")
@@ -110,8 +238,9 @@ def main():
         layout="wide"
     )
     
-    st.title("🌍 Travel RAG Assistant")
-    st.markdown("Ask me anything about travel destinations!")
+    # Enhanced title
+    st.markdown('<h1 class="main-title">🌍 Travel RAG Assistant</h1>', unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; font-size: 1.2em; color: #666; margin-bottom: 30px;'>Ask me anything about travel destinations!</p>", unsafe_allow_html=True)
 
     # Session state initialization
     if "conversation_id" not in st.session_state:
@@ -124,32 +253,33 @@ def main():
     if "current_answer_data" not in st.session_state:
         st.session_state.current_answer_data = None
 
-    # Sidebar configuration
-    st.sidebar.header("Configuration")
-    
-    # Model selection
-    model_choice = st.sidebar.selectbox(
-        "Select a model:",
-        ["openai/gpt-3.5-turbo", "openai/gpt-4o", "openai/gpt-4o-mini", "ollama/phi3"],
-        index=0
-    )
-    print_log(f"User selected model: {model_choice}")
+    # Enhanced sidebar configuration
+    with st.sidebar:
+        st.markdown("### ⚙️ Configuration")
+        
+        # Model selection
+        model_choice = st.selectbox(
+            "Select a model:",
+            ["openai/gpt-3.5-turbo", "openai/gpt-4o", "openai/gpt-4o-mini", "ollama/phi3"],
+            index=0
+        )
+        print_log(f"User selected model: {model_choice}")
 
-    # Search type selection
-    search_type = st.sidebar.radio(
-        "Select search type:", 
-        ["semantic", "hybrid"],
-        index=0
-    )
-    print_log(f"User selected search type: {search_type}")
+        # Search type selection
+        search_type = st.radio(
+            "Select search type:", 
+            ["semantic", "hybrid"],
+            index=0
+        )
+        print_log(f"User selected search type: {search_type}")
 
     # Main interface
     col1, col2 = st.columns([2, 1])
     
     with col1:
-        st.subheader("Ask Your Question")
+        st.markdown("### ❓ Ask Your Question")
         
-        # Custom form with enhanced styling
+        # Enhanced form with fixed button functionality
         with st.form(key="question_form", clear_on_submit=False, border=False):
             # Container for custom button positioning
             st.markdown('<div class="custom-submit-container">', unsafe_allow_html=True)
@@ -157,7 +287,7 @@ def main():
             # User input
             user_input = st.text_area(
                 "",  # Empty label for cleaner look
-                placeholder="e.g., What are the must-see places in Karnataka?\n\nTip: Press Ctrl+Enter or click the arrow to submit",
+                placeholder="e.g., What are the must-see places in Karnataka?\n\n💡 Tip: Press Ctrl+Enter or click the teal arrow to submit",
                 height=120,
                 key="user_question",
                 label_visibility="collapsed"
@@ -166,11 +296,29 @@ def main():
             # Hidden form submit button (we'll use custom styling)
             submitted = st.form_submit_button("Submit", use_container_width=False)
             
-            # Custom submit button overlay
+            # Fixed custom submit button with proper JavaScript
             button_html = '''
-            <div class="custom-submit-button" onclick="document.querySelector('[data-testid=\\"stFormSubmitButton\\"] button').click();">
+            <div class="custom-submit-button" 
+                 onclick="
+                    const submitBtn = document.querySelector('button[kind=\\"formSubmit\\"]');
+                    if (submitBtn) {
+                        submitBtn.click();
+                    }
+                 "
+                 title="Submit your question">
                 <div class="submit-arrow"></div>
             </div>
+            <script>
+                // Enhanced keyboard support
+                document.addEventListener('keydown', function(e) {
+                    if (e.ctrlKey && e.key === 'Enter') {
+                        const submitBtn = document.querySelector('button[kind=\\"formSubmit\\"]');
+                        if (submitBtn) {
+                            submitBtn.click();
+                        }
+                    }
+                });
+            </script>
             '''
             st.markdown(button_html, unsafe_allow_html=True)
             
@@ -178,7 +326,7 @@ def main():
 
         # Process form submission
         if submitted and user_input.strip():
-            with st.spinner("Processing your question..."):
+            with st.spinner("🔍 Processing your question..."):
                 print_log(f"User asked: '{user_input}'")
                 
                 print_log(f"Getting answer using {model_choice} model and {search_type} search")
@@ -188,7 +336,7 @@ def main():
                 
                 print_log(f"Answer received in {end_time - start_time:.2f} seconds")
                 
-                # FIXED: Save conversation using the same conversation_id
+                # Save conversation using the same conversation_id
                 print_log(f"Saving conversation with ID: {st.session_state.conversation_id}")
                 save_conversation(st.session_state.conversation_id, user_input, answer_data)
                 print_log("Conversation saved successfully")
@@ -197,63 +345,77 @@ def main():
                 st.session_state.current_answer_data = answer_data
 
         elif submitted and not user_input.strip():
-            st.warning("Please enter a question before submitting.")
+            st.warning("⚠️ Please enter a question before submitting.")
 
         # Display answer if available
         if st.session_state.current_answer_data:
             answer_data = st.session_state.current_answer_data
             
             # Display answer
-            st.success("✅ Answer Generated!")
-            st.markdown("### Answer:")
-            st.write(answer_data["answer"])
+            st.success("✅ Answer Generated Successfully!")
+            st.markdown("### 💬 Answer:")
+            st.markdown(f"<div style='background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #20b2aa; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 15px 0;'>{answer_data['answer']}</div>", unsafe_allow_html=True)
 
             # Display metadata
             with st.expander("📊 Response Details"):
                 col_meta1, col_meta2 = st.columns(2)
                 
                 with col_meta1:
-                    st.metric("Response Time", f"{answer_data['response_time']:.2f}s")
-                    st.metric("Relevance", answer_data['relevance'])
-                    st.metric("Model Used", answer_data['model_used'])
+                    st.markdown('<div class="metric-container">', unsafe_allow_html=True)
+                    st.metric("⏱️ Response Time", f"{answer_data['response_time']:.2f}s")
+                    st.metric("🎯 Relevance", answer_data['relevance'])
+                    st.metric("🤖 Model Used", answer_data['model_used'])
+                    st.markdown('</div>', unsafe_allow_html=True)
                 
                 with col_meta2:
-                    st.metric("Total Tokens", answer_data['total_tokens'])
-                    st.metric("Search Results", answer_data['search_results_count'])
+                    st.markdown('<div class="metric-container">', unsafe_allow_html=True)
+                    st.metric("📝 Total Tokens", answer_data['total_tokens'])
+                    st.metric("🔍 Search Results", answer_data['search_results_count'])
                     if answer_data["openai_cost"] > 0:
-                        st.metric("OpenAI Cost", f"${answer_data['openai_cost']:.4f}")
+                        st.metric("💰 OpenAI Cost", f"${answer_data['openai_cost']:.4f}")
+                    st.markdown('</div>', unsafe_allow_html=True)
 
-            # Feedback section
-            st.markdown("---")
+            # Enhanced feedback section with fixed alignment
+            st.markdown('<div class="feedback-section">', unsafe_allow_html=True)
             st.markdown("### 💭 Was this answer helpful?")
             
-            # Feedback buttons with icons
-            feedback_col1, feedback_col2, feedback_col3 = st.columns([1, 1, 4])
+            # Fixed feedback buttons container
+            st.markdown('<div class="feedback-buttons-container">', unsafe_allow_html=True)
+            feedback_col1, feedback_col2, feedback_col3 = st.columns([1, 1, 2])
             
             with feedback_col1:
-                if st.button("👍 Helpful", key="thumbs_up"):
+                thumbs_up_clicked = st.button("👍 Helpful", key="thumbs_up")
+            
+            with feedback_col2:
+                thumbs_down_clicked = st.button("👎 Not Helpful", key="thumbs_down")
+            
+            with feedback_col3:
+                # Fixed message container with consistent height
+                st.markdown('<div class="feedback-message">', unsafe_allow_html=True)
+                if thumbs_up_clicked:
                     if not st.session_state.feedback_given:
-                        # FIXED: Use the same conversation_id
                         save_feedback(st.session_state.conversation_id, 1)
                         st.session_state.feedback_given = True
-                        st.success("Thank you for your feedback! 👍")
+                        st.success("Thank you for your positive feedback! 👍")
                         print_log(f"Positive feedback saved for conversation: {st.session_state.conversation_id}")
                     else:
                         st.info("Feedback already recorded for this conversation.")
-            
-            with feedback_col2:
-                if st.button("👎 Not Helpful", key="thumbs_down"):
+                
+                elif thumbs_down_clicked:
                     if not st.session_state.feedback_given:
-                        # FIXED: Use the same conversation_id
                         save_feedback(st.session_state.conversation_id, -1)
                         st.session_state.feedback_given = True
                         st.error("Thank you for your feedback. We'll try to improve! 👎")
                         print_log(f"Negative feedback saved for conversation: {st.session_state.conversation_id}")
                     else:
                         st.info("Feedback already recorded for this conversation.")
+                st.markdown('</div>', unsafe_allow_html=True)
+            
+            st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
         # Reset for next question
-        if st.button("🔄 Ask Another Question"):
+        if st.button("🔄 Ask Another Question", use_container_width=True):
             st.session_state.conversation_id = str(uuid.uuid4())
             st.session_state.feedback_given = False
             st.session_state.current_answer_data = None
@@ -261,11 +423,12 @@ def main():
             st.rerun()
 
     with col2:
-        st.subheader("📊 Statistics")
+        st.markdown("### 📊 Statistics")
         
         # Feedback stats
         try:
             feedback_stats = get_feedback_stats()
+            st.markdown('<div class="metric-container">', unsafe_allow_html=True)
             st.metric("👍 Positive Feedback", feedback_stats['thumbs_up'])
             st.metric("👎 Negative Feedback", feedback_stats['thumbs_down'])
             
@@ -273,12 +436,13 @@ def main():
             if total_feedback > 0:
                 satisfaction_rate = (feedback_stats['thumbs_up'] / total_feedback) * 100
                 st.metric("😊 Satisfaction Rate", f"{satisfaction_rate:.1f}%")
+            st.markdown('</div>', unsafe_allow_html=True)
         except Exception as e:
             st.error("Could not load feedback statistics")
             print_log(f"Error loading feedback stats: {e}")
 
         # Recent conversations
-        st.subheader("🕐 Recent Conversations")
+        st.markdown("### 🕐 Recent Conversations")
         
         # Relevance filter
         relevance_filter = st.selectbox(
@@ -309,19 +473,20 @@ def main():
             st.error("Could not load recent conversations")
             print_log(f"Error loading conversations: {e}")
 
-    # Footer
+    # Enhanced footer
     st.markdown("---")
     st.markdown(
         """
-        <div style='text-align: center'>
-            <p><em>Travel RAG Assistant - Powered by AI and Vector Search</em></p>
-            <p><small>💡 Tip: Use Ctrl+Enter or click the blue arrow to submit quickly!</small></p>
+        <div style='text-align: center; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 20px; border-radius: 15px; margin-top: 30px;'>
+            <p style='font-size: 1.1em; font-weight: 600; color: #333;'><em>🌍 Travel RAG Assistant - Powered by AI</em></p>
+            <p style='color: #666;'><small>💡 Tip: Use Ctrl+Enter or click the teal arrow to submit quickly!</small></p>
         </div>
         """, 
         unsafe_allow_html=True
     )
 
     print_log("Streamlit app loop completed")
+
 
 if __name__ == "__main__":
     print_log("Travel RAG Assistant application started")
