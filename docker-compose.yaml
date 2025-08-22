@@ -114,6 +114,31 @@ services:
     networks:
       - rag_network
     restart: unless-stopped
+  
+  # Grafana Init (provision datasource + dashboard automatically)
+  grafana-init:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: grafana-init
+    depends_on:
+      - grafana
+      - postgres
+    environment:
+      - GRAFANA_URL=http://grafana:3000
+      - GRAFANA_ADMIN_USER=admin
+      - GRAFANA_ADMIN_PASSWORD=admin
+      - POSTGRES_HOST=postgres
+      - POSTGRES_DB=brahman
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_PORT=5432
+    command: >
+      sh -c "pip install requests python-dotenv &&
+             python /app/grafana/init.py"
+    networks:
+      - rag_network
+    restart: "no"
 
 volumes:
   qdrant_storage:
