@@ -301,12 +301,12 @@ docker-compose up -d
 
 This section demonstrates how Brahman.ai meets all the evaluation requirements:
 
-### ✅ a) Problem Description
+### Problem Description
 **Status: Complete**
 
 The problem is well-described and it's clear what problem the project solves. See [Problem Statement](#problem-statement) section above for detailed analysis of traveler pain points and how our AI assistant addresses them.
 
-### ✅ b) RAG Flow
+### RAG Flow
 **Status: Complete**
 
 Both a knowledge base and an LLM are used in the RAG flow:
@@ -314,7 +314,7 @@ Both a knowledge base and an LLM are used in the RAG flow:
 - **LLMs**: OpenAI GPT models (3.5-turbo, 4o, 4o-mini) and Ollama Phi3
 - **Complete Pipeline**: Data ingestion → Vector storage → Retrieval → Generation → Evaluation
 
-### ✅ c) Retrieval Evaluation
+### Retrieval Evaluation
 **Status: Complete**
 
 Multiple retrieval approaches are evaluated, and the best one is used:
@@ -336,7 +336,7 @@ Multiple retrieval approaches are evaluated, and the best one is used:
 - `notebooks/4_semantic_search_evaluation_qdrant.ipynb`
 - `notebooks/5_hybrid_search_evaluation.ipynb`
 
-### ✅ d) RAG Evaluation
+### RAG Evaluation
 **Status: Complete**
 
 Multiple RAG approaches are evaluated, and the best one is used:
@@ -351,7 +351,7 @@ Multiple RAG approaches are evaluated, and the best one is used:
 
 **Evaluation Notebook:** `notebooks/offline-rag-evaluation.ipynb`
 
-### ✅ e) Interface
+### Interface
 **Status: Complete**
 
 Streamlit is used as the main interface:
@@ -368,7 +368,7 @@ Streamlit is used as the main interface:
 
 **File:** `app/app.py`
 
-### ✅ f) Ingestion Pipeline
+### Ingestion Pipeline
 **Status: Complete**
 
 Automated ingestion pipeline processes travel documents:
@@ -385,7 +385,7 @@ Automated ingestion pipeline processes travel documents:
 - **Processing Notebook**: `notebooks/1_process_pdf2Jsonl.ipynb`
 - **Ground Truth Generation**: `notebooks/2_ground_truth_data.ipynb`
 
-### ✅ g) Monitoring
+### Monitoring
 **Status: Complete**
 
 User feedback is collected and there's a dashboard with 7 comprehensive charts:
@@ -409,7 +409,7 @@ User feedback is collected and there's a dashboard with 7 comprehensive charts:
 
 **Files:** `grafana/dashboard.json`, `grafana/init.py`
 
-### ✅ h) Containerization
+### Containerization
 **Status: Complete**
 
 Everything runs in Docker containers for easy deployment:
@@ -431,7 +431,7 @@ Everything runs in Docker containers for easy deployment:
 
 **File:** `docker-compose.yaml`
 
-### ✅ i) Reproducibility
+### Reproducibility
 **Status: Complete**
 
 Complete step-by-step instructions provided for Windows 11 setup. See [Reproducibility](#reproducibility) section above for detailed instructions including:
@@ -442,7 +442,7 @@ Complete step-by-step instructions provided for Windows 11 setup. See [Reproduci
 - Verification steps
 - Troubleshooting guide
 
-### ✅ j) Best Practices
+### Best Practices
 **Status: Complete**
 
 **Hybrid Search (3 points)**: ✅ **Implemented**
@@ -460,7 +460,7 @@ Complete step-by-step instructions provided for Windows 11 setup. See [Reproduci
 - Context-aware prompt engineering for better LLM responses
 - **Implementation**: `app/app.py` prompt template formatting
 
-### ❌ k) Deployment
+### Deployment
 **Status: Planned**
 
 Cloud deployment is planned for Hetzner Cloud platform but not currently implemented due to time constraints. The containerized architecture makes cloud deployment straightforward when ready.
@@ -498,7 +498,7 @@ Special thanks to:
 
 - **[Alexey Grigorev](https://github.com/alexeygrigorev)** - For his outstanding contributions to the ML and data engineering community, and for inspiring this project through his educational content and open-source work.
 
-- **[DataTalks.Club](https://datatalks.club/)** - For providing an incredible learning platform and community that fosters knowledge sharing in data science, machine learning, and engineering. The concepts and best practices learned through DataTalks.Club courses directly influenced this project's architecture and implementation.
+- **[DataTalks.Club](https://datatalks.club/)** - For providing an incredible learning platform and community that fosters knowledge sharing in data science, machine learning, and data engineering. The concepts and best practices learned through DataTalks.Club courses directly influenced this project's architecture and implementation.
 
 - **Wikivoyage Community** - For creating and maintaining high-quality, open-source travel content that powers this assistant.
 
@@ -506,6 +506,6 @@ Special thanks to:
 
 ---
 
-**Built with ❤️ by the Brahman.ai team**
+**Built with ❤️ by Aditya**
 
-*For questions, issues, or contributions, please visit our [GitHub repository](https://github.com/yourusername/brahman-ai).*
+*For questions, issues, or contributions, please visit our [GitHub repository](https://github.com/Adityagurung/brahman.ai).*
