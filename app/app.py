@@ -110,8 +110,8 @@ def main():
         layout="wide"
     )
     
-    st.title("🌍 Travel RAG Assistant")
-    st.markdown("Ask me anything about travel destinations!")
+    st.title("🌍 Brahman.ai - Your Smart Travel Assistant")
+    st.markdown("Ask me anything about travel in India!")
 
     # Session state initialization
     if "conversation_id" not in st.session_state:
@@ -157,7 +157,7 @@ def main():
             # User input
             user_input = st.text_area(
                 "",  # Empty label for cleaner look
-                placeholder="e.g., What are the must-see places in Karnataka?\n\nTip: Press Ctrl+Enter or click the arrow to submit",
+                placeholder="e.g., What are the must-see places in India?\n\nTip: Press Ctrl+Enter or click the arrow to submit",
                 height=120,
                 key="user_question",
                 label_visibility="collapsed"
@@ -314,7 +314,7 @@ def main():
     st.markdown(
         """
         <div style='text-align: center'>
-            <p><em>Travel RAG Assistant - Powered by AI and Vector Search</em></p>
+            <p><em>Travel RAG Assistant - Powered by AI</em></p>
             <p><small>💡 Tip: Use Ctrl+Enter or click the blue arrow to submit quickly!</small></p>
         </div>
         """, 
