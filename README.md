@@ -32,17 +32,17 @@ The system processes travel guide documents from Wikivoyage, creates a comprehen
 
 Modern travelers face numerous challenges when planning their journeys:
 
-**🚫 Information Overload**: Travelers are bombarded with scattered information across multiple websites, travel blogs, and guidebooks, making it difficult to find relevant and trustworthy information quickly.
+**Information Overload**: Travelers are bombarded with scattered information across multiple websites, travel blogs, and guidebooks, making it difficult to find relevant and trustworthy information quickly.
 
-**🚫 Generic Recommendations**: Most travel platforms provide generic, one-size-fits-all recommendations that don't consider individual preferences or specific contexts.
+**Generic Recommendations**: Most travel platforms provide generic, one-size-fits-all recommendations that don't consider individual preferences or specific contexts.
 
-**🚫 Outdated Information**: Travel information becomes outdated quickly, and travelers often struggle to find current, accurate details about destinations.
+**Outdated Information**: Travel information becomes outdated quickly, and travelers often struggle to find current, accurate details about destinations.
 
-**🚫 Language Barriers**: Accessing local travel information in native languages can be challenging for international travelers.
+**Language Barriers**: Accessing local travel information in native languages can be challenging for international travelers.
 
-**🚫 Time-Intensive Research**: Planning a trip requires hours of research across multiple sources to gather comprehensive information about destinations, attractions, and logistics.
+**Time-Intensive Research**: Planning a trip requires hours of research across multiple sources to gather comprehensive information about destinations, attractions, and logistics.
 
-**✅ How Brahman.ai Solves These Problems:**
+**How Brahman.ai Solves These Problems:**
 
 Our AI-powered travel assistant revolutionizes trip planning by:
 - **Centralized Knowledge Base**: Curated information from reliable sources like Wikivoyage
@@ -56,17 +56,6 @@ Our AI-powered travel assistant revolutionizes trip planning by:
 ### Wikivoyage - The Free Travel Guide
 
 Our primary data source is **[Wikivoyage](https://en.wikivoyage.org/wiki/Main_Page)**, a collaborative, free, and open-source travel guide that anyone can edit. Wikivoyage provides comprehensive, up-to-date travel information with a focus on practical advice for travelers.
-
-**Why Wikivoyage?**
-- **Community-Driven**: Continuously updated by travel enthusiasts and locals
-- **Comprehensive Coverage**: Detailed information about destinations worldwide
-- **Neutral Perspective**: Unbiased, non-commercial travel advice
-- **Rich Content**: Cultural insights, practical tips, and local recommendations
-- **Open License**: Free to use for educational and commercial purposes
-
-**Current Dataset:**
-- **Andhra Pradesh Travel Guide**: 🏛️ Historical sites, cultural centers, temples, cuisine
-- **Karnataka Travel Guide**: 🏰 UNESCO World Heritage sites, tech hubs, palaces, nature reserves
 
 **Data Processing Pipeline:**
 1. **PDF Download**: Direct download from Wikivoyage website
@@ -97,26 +86,26 @@ Our technology stack combines cutting-edge AI/ML tools with robust infrastructur
 - **PostgreSQL**: Relational database for conversation logs and metadata
 - **pgAdmin**: Database administration interface
 - **Docker Volumes**: Persistent data storage
+- **Qdrant**: High-performance vector database with FastEmbed integration
 
 ### 🌐 **Web Technologies**
 - **Streamlit**: Interactive web interface for the travel assistant
 - **Docker**: Containerization for all services
 - **Docker Compose**: Multi-container orchestration
 
-### 📊 **Monitoring & Analytics**
+### 📊 **Visualization & Monitoring**
 - **Grafana**: Real-time monitoring dashboards
 - **PostgreSQL Integration**: Custom metrics and conversation analytics
+- **matplotlib & seaborn**: Python library for creating statistical, animated, and interactive data visualizations.
 
 ### 🛠️ **Document Processing**
 - **Marker**: Advanced PDF-to-Markdown conversion
 - **Surya Models**: Document layout detection and OCR
 - **RecursiveCharacterTextSplitter**: Intelligent text chunking
 
-### 📋 **Development Tools**
-- **Jupyter Notebooks**: Research and evaluation pipelines
-- **Python**: Primary programming language
-- **Pandas**: Data analysis and processing
-- **NumPy**: Numerical computations
+### 📋 **Coding Tools**
+- **Jupyter Notebooks**: Coding in Python
+- **VS Code**: IDE used for development, debugging, running bash/shell terminal and source version control.
 
 ## RAG Flow
 
@@ -196,8 +185,8 @@ Follow these step-by-step instructions to set up Brahman.ai on your Windows 11 s
 ### Step 1: Clone the Repository
 ```powershell
 # Open PowerShell as Administrator
-git clone https://github.com/yourusername/brahman-ai.git
-cd brahman-ai
+git clone https://github.com/Adityagurung/brahman.ai.git
+cd brahman.ai
 ```
 
 ### Step 2: Environment Configuration
@@ -206,7 +195,7 @@ cd brahman-ai
 copy .env.template .env
 
 # Edit .env file with your API keys
-notepad .env
+.env
 ```
 
 **Required Environment Variables:**
@@ -301,12 +290,12 @@ docker-compose up -d
 
 This section demonstrates how Brahman.ai meets all the evaluation requirements:
 
-### ✅ a) Problem Description
+### Problem Description
 **Status: Complete**
 
 The problem is well-described and it's clear what problem the project solves. See [Problem Statement](#problem-statement) section above for detailed analysis of traveler pain points and how our AI assistant addresses them.
 
-### ✅ b) RAG Flow
+### RAG Flow
 **Status: Complete**
 
 Both a knowledge base and an LLM are used in the RAG flow:
@@ -314,7 +303,7 @@ Both a knowledge base and an LLM are used in the RAG flow:
 - **LLMs**: OpenAI GPT models (3.5-turbo, 4o, 4o-mini) and Ollama Phi3
 - **Complete Pipeline**: Data ingestion → Vector storage → Retrieval → Generation → Evaluation
 
-### ✅ c) Retrieval Evaluation
+### Retrieval Evaluation
 **Status: Complete**
 
 Multiple retrieval approaches are evaluated, and the best one is used:
@@ -336,7 +325,7 @@ Multiple retrieval approaches are evaluated, and the best one is used:
 - `notebooks/4_semantic_search_evaluation_qdrant.ipynb`
 - `notebooks/5_hybrid_search_evaluation.ipynb`
 
-### ✅ d) RAG Evaluation
+### RAG Evaluation
 **Status: Complete**
 
 Multiple RAG approaches are evaluated, and the best one is used:
@@ -351,7 +340,7 @@ Multiple RAG approaches are evaluated, and the best one is used:
 
 **Evaluation Notebook:** `notebooks/offline-rag-evaluation.ipynb`
 
-### ✅ e) Interface
+### Interface
 **Status: Complete**
 
 Streamlit is used as the main interface:
@@ -368,7 +357,7 @@ Streamlit is used as the main interface:
 
 **File:** `app/app.py`
 
-### ✅ f) Ingestion Pipeline
+### Ingestion Pipeline
 **Status: Complete**
 
 Automated ingestion pipeline processes travel documents:
@@ -385,7 +374,7 @@ Automated ingestion pipeline processes travel documents:
 - **Processing Notebook**: `notebooks/1_process_pdf2Jsonl.ipynb`
 - **Ground Truth Generation**: `notebooks/2_ground_truth_data.ipynb`
 
-### ✅ g) Monitoring
+### Monitoring
 **Status: Complete**
 
 User feedback is collected and there's a dashboard with 7 comprehensive charts:
@@ -409,7 +398,7 @@ User feedback is collected and there's a dashboard with 7 comprehensive charts:
 
 **Files:** `grafana/dashboard.json`, `grafana/init.py`
 
-### ✅ h) Containerization
+### Containerization
 **Status: Complete**
 
 Everything runs in Docker containers for easy deployment:
@@ -431,7 +420,7 @@ Everything runs in Docker containers for easy deployment:
 
 **File:** `docker-compose.yaml`
 
-### ✅ i) Reproducibility
+### Reproducibility
 **Status: Complete**
 
 Complete step-by-step instructions provided for Windows 11 setup. See [Reproducibility](#reproducibility) section above for detailed instructions including:
@@ -442,7 +431,7 @@ Complete step-by-step instructions provided for Windows 11 setup. See [Reproduci
 - Verification steps
 - Troubleshooting guide
 
-### ✅ j) Best Practices
+### Best Practices
 **Status: Complete**
 
 **Hybrid Search (3 points)**: ✅ **Implemented**
@@ -460,7 +449,7 @@ Complete step-by-step instructions provided for Windows 11 setup. See [Reproduci
 - Context-aware prompt engineering for better LLM responses
 - **Implementation**: `app/app.py` prompt template formatting
 
-### ❌ k) Deployment
+### Deployment
 **Status: Planned**
 
 Cloud deployment is planned for Hetzner Cloud platform but not currently implemented due to time constraints. The containerized architecture makes cloud deployment straightforward when ready.
@@ -498,7 +487,7 @@ Special thanks to:
 
 - **[Alexey Grigorev](https://github.com/alexeygrigorev)** - For his outstanding contributions to the ML and data engineering community, and for inspiring this project through his educational content and open-source work.
 
-- **[DataTalks.Club](https://datatalks.club/)** - For providing an incredible learning platform and community that fosters knowledge sharing in data science, machine learning, and engineering. The concepts and best practices learned through DataTalks.Club courses directly influenced this project's architecture and implementation.
+- **[DataTalks.Club](https://datatalks.club/)** - For providing an incredible learning platform and community that fosters knowledge sharing in data science, machine learning, and data engineering. The concepts and best practices learned through DataTalks.Club courses directly influenced this project's architecture and implementation.
 
 - **Wikivoyage Community** - For creating and maintaining high-quality, open-source travel content that powers this assistant.
 
@@ -506,6 +495,6 @@ Special thanks to:
 
 ---
 
-**Built with ❤️ by the Brahman.ai team**
+**Built with ❤️ by Aditya**
 
-*For questions, issues, or contributions, please visit our [GitHub repository](https://github.com/yourusername/brahman-ai).*
+*For questions, issues, or contributions, please visit our [GitHub repository](https://github.com/Adityagurung/brahman.ai).*
