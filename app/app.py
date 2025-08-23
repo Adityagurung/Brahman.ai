@@ -111,7 +111,7 @@ def main():
     )
     
     st.title("🌍 Brahman.ai - Your Smart Travel Assistant")
-    st.markdown("Hi! I'm here to help you plan your next adventure. Ask me anything about travel destinations, tips, and more!")
+    st.markdown("Hi! I'm here to help you plan your next adventure. Ask me anything about travel destinations, tips, and more! ✈️🌴😎") 
 
     # Session state initialization
     if "conversation_id" not in st.session_state:
