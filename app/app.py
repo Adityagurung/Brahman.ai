@@ -236,7 +236,7 @@ def main():
                         # FIXED: Use the same conversation_id
                         save_feedback(st.session_state.conversation_id, 1)
                         st.session_state.feedback_given = True
-                        st.success("Thank you for your feedback! 👍")
+                        st.success("Thank you for your feedback! 🙏")
                         print_log(f"Positive feedback saved for conversation: {st.session_state.conversation_id}")
                     else:
                         st.info("Feedback already recorded for this conversation.")
@@ -247,7 +247,7 @@ def main():
                         # FIXED: Use the same conversation_id
                         save_feedback(st.session_state.conversation_id, -1)
                         st.session_state.feedback_given = True
-                        st.error("Thank you for your feedback. We'll try to improve! 👎")
+                        st.error("Thank you for your feedback. We'll try to improve! 🙏")
                         print_log(f"Negative feedback saved for conversation: {st.session_state.conversation_id}")
                     else:
                         st.info("Feedback already recorded for this conversation.")
