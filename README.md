@@ -1,6 +1,6 @@
 # Brahman.ai - Intelligent Travel Assistant RAG System
 
-*[VIDEO PLACEHOLDER: Streamlit UI Demo - Add your video showing the travel assistant interface in action]*
+*[VIDEO PLACEHOLDER: Streamlit UI Demo - add video showing the travel assistant interface in action]*
 
 ## Table of Contents
 
