@@ -1,6 +1,6 @@
 # Brahman.ai - Intelligent Travel Assistant RAG System
 
-*[VIDEO PLACEHOLDER: Streamlit UI Demo - Add your video showing the travel assistant interface in action]*
+*[VIDEO PLACEHOLDER: Streamlit UI Demo - add video showing the travel assistant interface in action]*
 
 ## Table of Contents
 
@@ -51,7 +51,7 @@ Our AI-powered travel assistant revolutionizes trip planning by:
 - **Real-time Relevance**: Advanced search algorithms ensure the most relevant information surfaces first
 - **Comprehensive Coverage**: From cultural experiences to practical travel tips, all in one place
 
-## Dataset/Data Sources
+## Data Source
 
 ### Wikivoyage - The Free Travel Guide
 
@@ -86,16 +86,15 @@ Our technology stack combines cutting-edge AI/ML tools with robust infrastructur
 - **PostgreSQL**: Relational database for conversation logs and metadata
 - **pgAdmin**: Database administration interface
 - **Docker Volumes**: Persistent data storage
-- **Qdrant**: High-performance vector database with FastEmbed integration
+- **Qdrant**: Vector database for storing, searching, and managing high-dimensional vector embeddings
 
 ### 🌐 **Web Technologies**
-- **Streamlit**: Interactive web interface for the travel assistant
+- **Streamlit**: Interactive web interface for the AI powered smart travel assistant
 - **Docker**: Containerization for all services
 - **Docker Compose**: Multi-container orchestration
 
 ### 📊 **Visualization & Monitoring**
 - **Grafana**: Real-time monitoring dashboards
-- **PostgreSQL Integration**: Custom metrics and conversation analytics
 - **matplotlib & seaborn**: Python library for creating statistical, animated, and interactive data visualizations.
 
 ### 🛠️ **Document Processing**
@@ -126,7 +125,7 @@ Wikivoyage PDFs → Marker Conversion → Markdown → LangChain Splitting → J
 ```
 Text Chunks → Jina Embeddings → Qdrant Vector DB → BM25 Indexing → Hybrid Collection
 ```
-- Dense embeddings generated using Jina AI v2 (512 dimensions)
+- Dense embeddings generated using Jina embeddings v2 
 - Sparse BM25 vectors created for keyword matching
 - Both stored in Qdrant hybrid collections
 - Automatic indexing with MD5-based document IDs
@@ -137,8 +136,7 @@ User Query → Search Strategy Selection → Multi-Vector Retrieval → RRF Fusi
 ```
 - **Semantic Search**: Dense vector similarity using cosine distance
 - **Keyword Search**: BM25 sparse vector matching
-- **Hybrid Search**: RRF fusion combining both approaches
-- Configurable result limits and search parameters
+- **Hybrid Search**: Reciprocal Rank Fusion (RRF) combining both approaches
 
 ### 4. **Context Assembly** 📝
 ```
@@ -161,7 +159,7 @@ Enhanced Prompt → LLM Selection → API Call → Response Processing → Answe
 Generated Answer → Relevance Evaluation → LLM-as-Judge → Quality Scoring → Feedback Loop
 ```
 - Automated relevance classification (RELEVANT/PARTLY_RELEVANT/NON_RELEVANT)
-- GPT-4o-mini as evaluation judge
+- chatGPT as evaluation judge
 - Continuous quality monitoring
 
 ### 7. **Monitoring & Analytics** 📊
@@ -174,13 +172,13 @@ All Interactions → PostgreSQL Logging → Grafana Visualization → Performanc
 
 ## Reproducibility
 
-Follow these step-by-step instructions to set up Brahman.ai on your Windows 11 system:
+Follow these step-by-step instructions to set up Brahman.ai on your system:
 
 ### Prerequisites
-- Windows 11 operating system
 - Git installed
 - Docker Desktop for Windows
-- Python 3.10+ (optional, for development)
+- Docker Compose 
+- Python 3.10+ 
 
 ### Step 1: Clone the Repository
 ```powershell
