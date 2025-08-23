@@ -32,17 +32,17 @@ The system processes travel guide documents from Wikivoyage, creates a comprehen
 
 Modern travelers face numerous challenges when planning their journeys:
 
-**🚫 Information Overload**: Travelers are bombarded with scattered information across multiple websites, travel blogs, and guidebooks, making it difficult to find relevant and trustworthy information quickly.
+**Information Overload**: Travelers are bombarded with scattered information across multiple websites, travel blogs, and guidebooks, making it difficult to find relevant and trustworthy information quickly.
 
-**🚫 Generic Recommendations**: Most travel platforms provide generic, one-size-fits-all recommendations that don't consider individual preferences or specific contexts.
+**Generic Recommendations**: Most travel platforms provide generic, one-size-fits-all recommendations that don't consider individual preferences or specific contexts.
 
-**🚫 Outdated Information**: Travel information becomes outdated quickly, and travelers often struggle to find current, accurate details about destinations.
+**Outdated Information**: Travel information becomes outdated quickly, and travelers often struggle to find current, accurate details about destinations.
 
-**🚫 Language Barriers**: Accessing local travel information in native languages can be challenging for international travelers.
+**Language Barriers**: Accessing local travel information in native languages can be challenging for international travelers.
 
-**🚫 Time-Intensive Research**: Planning a trip requires hours of research across multiple sources to gather comprehensive information about destinations, attractions, and logistics.
+**Time-Intensive Research**: Planning a trip requires hours of research across multiple sources to gather comprehensive information about destinations, attractions, and logistics.
 
-**✅ How Brahman.ai Solves These Problems:**
+**How Brahman.ai Solves These Problems:**
 
 Our AI-powered travel assistant revolutionizes trip planning by:
 - **Centralized Knowledge Base**: Curated information from reliable sources like Wikivoyage
@@ -56,17 +56,6 @@ Our AI-powered travel assistant revolutionizes trip planning by:
 ### Wikivoyage - The Free Travel Guide
 
 Our primary data source is **[Wikivoyage](https://en.wikivoyage.org/wiki/Main_Page)**, a collaborative, free, and open-source travel guide that anyone can edit. Wikivoyage provides comprehensive, up-to-date travel information with a focus on practical advice for travelers.
-
-**Why Wikivoyage?**
-- **Community-Driven**: Continuously updated by travel enthusiasts and locals
-- **Comprehensive Coverage**: Detailed information about destinations worldwide
-- **Neutral Perspective**: Unbiased, non-commercial travel advice
-- **Rich Content**: Cultural insights, practical tips, and local recommendations
-- **Open License**: Free to use for educational and commercial purposes
-
-**Current Dataset:**
-- **Andhra Pradesh Travel Guide**: 🏛️ Historical sites, cultural centers, temples, cuisine
-- **Karnataka Travel Guide**: 🏰 UNESCO World Heritage sites, tech hubs, palaces, nature reserves
 
 **Data Processing Pipeline:**
 1. **PDF Download**: Direct download from Wikivoyage website
@@ -97,26 +86,26 @@ Our technology stack combines cutting-edge AI/ML tools with robust infrastructur
 - **PostgreSQL**: Relational database for conversation logs and metadata
 - **pgAdmin**: Database administration interface
 - **Docker Volumes**: Persistent data storage
+- **Qdrant**: High-performance vector database with FastEmbed integration
 
 ### 🌐 **Web Technologies**
 - **Streamlit**: Interactive web interface for the travel assistant
 - **Docker**: Containerization for all services
 - **Docker Compose**: Multi-container orchestration
 
-### 📊 **Monitoring & Analytics**
+### 📊 **Visualization & Monitoring**
 - **Grafana**: Real-time monitoring dashboards
 - **PostgreSQL Integration**: Custom metrics and conversation analytics
+- **matplotlib & seaborn**: Python library for creating statistical, animated, and interactive data visualizations.
 
 ### 🛠️ **Document Processing**
 - **Marker**: Advanced PDF-to-Markdown conversion
 - **Surya Models**: Document layout detection and OCR
 - **RecursiveCharacterTextSplitter**: Intelligent text chunking
 
-### 📋 **Development Tools**
-- **Jupyter Notebooks**: Research and evaluation pipelines
-- **Python**: Primary programming language
-- **Pandas**: Data analysis and processing
-- **NumPy**: Numerical computations
+### 📋 **Coding Tools**
+- **Jupyter Notebooks**: Coding in Python
+- **VS Code**: IDE used for development, debugging, running bash/shell terminal and source version control.
 
 ## RAG Flow
 
@@ -196,8 +185,8 @@ Follow these step-by-step instructions to set up Brahman.ai on your Windows 11 s
 ### Step 1: Clone the Repository
 ```powershell
 # Open PowerShell as Administrator
-git clone https://github.com/yourusername/brahman-ai.git
-cd brahman-ai
+git clone https://github.com/Adityagurung/brahman.ai.git
+cd brahman.ai
 ```
 
 ### Step 2: Environment Configuration
