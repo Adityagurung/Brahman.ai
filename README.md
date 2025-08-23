@@ -195,7 +195,7 @@ cd brahman.ai
 copy .env.template .env
 
 # Edit .env file with your API keys
-notepad .env
+.env
 ```
 
 **Required Environment Variables:**
