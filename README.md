@@ -104,7 +104,7 @@ Our technology stack combines cutting-edge AI/ML tools with robust infrastructur
 - **Jupyter Notebooks**: Coding in Python
 - **VS Code**: IDE used for development, debugging, running bash/shell terminal and source version control.
 
-## End to End RAG Flow
+## End to End Advance RAG Flow
 
 ![alt text](<images/end-to-end RAG flow.png>)
 
