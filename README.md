@@ -32,7 +32,7 @@ The system processes travel guide documents from Wikivoyage, creates a comprehen
 
 ## Problem Statement
 
-Modern travelers face numerous challenges when planning their journeys:
+### Modern travelers face numerous challenges when planning their journeys:
 
 **Information Overload**: Travelers are bombarded with scattered information across multiple websites, travel blogs, and guidebooks, making it difficult to find relevant and trustworthy information quickly.
 
