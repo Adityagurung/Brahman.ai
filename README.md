@@ -71,40 +71,40 @@ Our primary data source is **[Wikivoyage](https://en.wikivoyage.org/wiki/Main_Pa
 
 Our technology stack combines cutting-edge AI/ML tools with robust infrastructure components:
 
-### 🧠 **AI/ML Technologies**
+### 1 **AI/ML Technologies**
 - **Jina AI Embeddings v2**: 512-dimensional sentence embeddings for semantic search
 - **OpenAI GPT Models**: GPT-3.5-turbo, GPT-4o, GPT-4o-mini for text generation
 - **Ollama**: Local LLM support with Phi3 model
 - **LangChain**: Document processing and text splitting
 - **Sentence Transformers**: Additional embedding model support
 
-### 🔍 **Vector & Search Technologies**
+### 2 **Vector & Search Technologies**
 - **Qdrant**: High-performance vector database with FastEmbed integration
 - **MinSearch**: Lightweight keyword search for baseline comparisons
 - **BM25**: Sparse vector implementation for keyword matching
 - **Reciprocal Rank Fusion (RRF)**: Advanced hybrid search combining dense and sparse methods
 
-### 🗄️ **Database & Storage**
+### 3 **Database & Storage**
 - **PostgreSQL**: Relational database for conversation logs and metadata
 - **pgAdmin**: Database administration interface
 - **Docker Volumes**: Persistent data storage
 - **Qdrant**: Vector database for storing, searching, and managing high-dimensional vector embeddings
 
-### 🌐 **Web Technologies**
+### 4 **Web Technologies**
 - **Streamlit**: Interactive web interface for the AI powered smart travel assistant
 - **Docker**: Containerization for all services
 - **Docker Compose**: Multi-container orchestration
 
-### 📊 **Visualization & Monitoring**
+### 5 **Visualization & Monitoring**
 - **Grafana**: Real-time monitoring dashboards
 - **matplotlib & seaborn**: Python library for creating statistical, animated, and interactive data visualizations.
 
-### 🛠️ **Document Processing**
+### 6 **Document Processing**
 - **Marker**: Advanced PDF-to-Markdown conversion
 - **Surya Models**: Document layout detection and OCR
 - **RecursiveCharacterTextSplitter**: Intelligent text chunking
 
-### 📋 **Coding Tools**
+### 7 **Coding Tools**
 - **Jupyter Notebooks**: Coding in Python
 - **VS Code**: IDE used for development, debugging, running bash/shell terminal and source version control.
 
