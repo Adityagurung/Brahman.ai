@@ -1,5 +1,5 @@
 # Brahman.ai - Your Smart Travel Assistant
-![images\Brahman.ai.png](https://github.com/Adityagurung/Brahman.ai/blob/35a28c05d99dd7777a4ec472cf12eac17f0b47e9/images/Brahman.ai.png) 
+![alt text](images/Brahman.ai.png)
 
 
 *[VIDEO PLACEHOLDER: Streamlit UI Demo - WIP ]*
@@ -106,7 +106,7 @@ Our technology stack combines cutting-edge AI/ML tools with robust infrastructur
 
 ## End to End RAG Flow
 
-![*\[DIAGRAM PLACEHOLDER: End-to-End RAG Pipeline Architecture\]*](https://github.com/Adityagurung/Brahman.ai/blob/main/images/end-to-end%20RAG%20flow.png)
+![alt text](<images/end-to-end RAG flow.png>)
 
 ### 1. **Data Ingestion** 
 ```
@@ -294,7 +294,7 @@ Multiple retrieval approaches are evaluated, and the best one is used:
 ### RAG Evaluation
 Multiple RAG approaches are evaluated, and the best one is used:
 
-*[SCREENSHOT PLACEHOLDER: RAG evaluation results from offline evaluation notebook]*
+![alt text](images/cosine_similarity_multiple_examples.png)
 
 **Evaluation Framework:**
 - **Ground Truth Dataset**: 735 travel questions across 149 documents
@@ -307,7 +307,7 @@ Multiple RAG approaches are evaluated, and the best one is used:
 ### Interface
 Streamlit is used as the main interface:
 
-*[SCREENSHOT PLACEHOLDER: Streamlit travel assistant interface]*
+![alt text](<images/streamlit screenshot.png>)
 
 **Interface Features:**
 - **Chat Interface**: Natural language query input
