@@ -32,7 +32,7 @@ The system processes travel guide documents from Wikivoyage, creates a comprehen
 
 ## Problem Statement
 
-### Modern travelers face numerous challenges when planning their journeys:
+## Modern travelers face numerous challenges when planning their journeys:
 
 **Information Overload**: Travelers are bombarded with scattered information across multiple websites, travel blogs, and guidebooks, making it difficult to find relevant and trustworthy information quickly.
 
@@ -55,14 +55,12 @@ Our AI-powered travel assistant revolutionizes trip planning by:
 
 ## Data Source
 
-### Wikivoyage - The Free Travel Guide
-
-Our primary data source is **[Wikivoyage](https://en.wikivoyage.org/wiki/Main_Page)**, a collaborative, free, and open-source travel guide that anyone can edit. Wikivoyage provides comprehensive, up-to-date travel information with a focus on practical advice for travelers.
+Our primary data source is **[Wikivoyage](https://en.wikivoyage.org/wiki/Main_Page)**, a collaborative, free, and open-source travel guide. Wikivoyage provides comprehensive, up-to-date travel information with a focus on practical advice for travelers.
 
 **Data Processing Pipeline:**
 1. **PDF Download**: Direct download from Wikivoyage website
 2. **Storage**: Raw PDFs stored in `data/raw/` directory
-3. **Processing**: Automated conversion and chunking (see [Ingestion Pipeline](#f-ingestion-pipeline))
+3. **Processing**: Automated conversion and chunking (see [Ingestion Pipeline](https://github.com/Adityagurung/Brahman.ai/blob/38691d2e41d00408cc939daf3bed3e6216d31e59/notebooks/1_process_pdf2Jsonl.ipynb))
 4. **Indexing**: Vector embeddings and search index creation
 
 *[SCREENSHOT PLACEHOLDER: Wikivoyage website showing the travel guides used]*
@@ -108,11 +106,9 @@ Our technology stack combines cutting-edge AI/ML tools with robust infrastructur
 - **Jupyter Notebooks**: Coding in Python
 - **VS Code**: IDE used for development, debugging, running bash/shell terminal and source version control.
 
-## RAG Flow
+## End to End RAG Flow
 
 ![*\[DIAGRAM PLACEHOLDER: End-to-End RAG Pipeline Architecture\]*](https://github.com/Adityagurung/Brahman.ai/blob/main/images/end-to-end%20RAG%20flow.png)
-
-The Brahman.ai system follows a comprehensive RAG pipeline that ensures high-quality, relevant responses:
 
 ### 1. **Data Ingestion** 
 ```
@@ -182,16 +178,17 @@ Follow these step-by-step instructions to set up Brahman.ai on your system:
 - Docker Compose 
 - Python 3.10+ 
 
-### Step 1: Clone the Repository
+### 1: Clone the Repository
 ```
 git clone https://github.com/Adityagurung/brahman.ai.git
 cd brahman.ai
 ```
 
-### Step 2: Environment Configuration
+### 2: Environment Configuration
 ```
 # Copy the environment template
 copy .env.template .env
+rm.env.template
 
 # Edit .env file with your API keys
 .env
@@ -202,17 +199,11 @@ copy .env.template .env
 # OpenAI Configuration
 OPENAI_API_KEY=your_openai_api_key_here
 
-# Database Configuration
-POSTGRES_DB=brahman
-POSTGRES_USER=admin
-POSTGRES_PASSWORD=admin
-
-# Optional: Grafana
-GRAFANA_ADMIN_PASSWORD=admin
+In .env file add config values for variables - Postgres, Qdrant, Ollama, Streamlit, Grafana and pgAdmin
 ```
 
-### Step 3: Start Docker Services
-```powershell
+### 3: Start Docker Services
+```
 # Ensure Docker Desktop is running
 # Start all services in background
 docker-compose up -d
@@ -221,57 +212,49 @@ docker-compose up -d
 docker-compose ps
 ```
 
-### Step 4: Initialize the System
+### 4: Initialize the System
 ```powershell
 # Create a virtual environment (optional)
 python -m venv venv
 .\venv\Scripts\activate
 
 # Install dependencies
-pip install -r requirements.txt
+pip install -r requirements.txt 
+Note: Not required this step if run by docker-compose build command. 
 
 # Run the setup script to initialize database and index documents
 python app/setup.py
+
+#Test Rag system components
+python app/test_system.py
 ```
 
-### Step 5: Access the Applications
+### 5: Access the Applications
 
-**Main Travel Assistant:**
+**Travel Assistant App:**
 - URL: http://localhost:8501
 - Interface: Streamlit web application
 
 **Grafana Monitoring Dashboard:**
 - URL: http://localhost:3000
-- Login: admin/admin
 - Pre-configured with travel assistant metrics
 
 **Database Administration:**
 - URL: http://localhost:8080
 - pgAdmin interface for PostgreSQL
-- Login: admin@admin.com/admin
 
 **Qdrant Vector Database:**
 - URL: http://localhost:6333/dashboard
 - Vector database management interface
 
-### Step 6: Verify Installation
-```powershell
+### 6: Verify Installation
+```
 # Check all containers are running
 docker-compose logs streamlit
 
 # Test the API endpoints
 curl http://localhost:8501/health
 ```
-
-### Troubleshooting
-
-**Common Issues:**
-
-1. **Port Conflicts**: If ports are already in use, modify `docker-compose.yaml`
-2. **Memory Issues**: Ensure Docker has at least 4GB RAM allocated
-3. **API Key Issues**: Verify OpenAI API key is correctly set in `.env`
-4. **Network Issues**: Check Windows Firewall settings for Docker
-
 **Useful Commands:**
 ```powershell
 # View logs
@@ -290,21 +273,15 @@ docker-compose up -d
 This section demonstrates how Brahman.ai meets all the evaluation requirements:
 
 ### Problem Description
-**Status: Complete**
-
 The problem is well-described and it's clear what problem the project solves. See [Problem Statement](#problem-statement) section above for detailed analysis of traveler pain points and how our AI assistant addresses them.
 
 ### RAG Flow
-**Status: Complete**
-
 Both a knowledge base and an LLM are used in the RAG flow:
-- **Knowledge Base**: Qdrant vector database with 149 travel document chunks
+- **Knowledge Base**: Qdrant vector database with travel document chunks
 - **LLMs**: OpenAI GPT models (3.5-turbo, 4o, 4o-mini) and Ollama Phi3
 - **Complete Pipeline**: Data ingestion → Vector storage → Retrieval → Generation → Evaluation
 
 ### Retrieval Evaluation
-**Status: Complete**
-
 Multiple retrieval approaches are evaluated, and the best one is used:
 
 **Evaluation Results:**
@@ -320,13 +297,11 @@ Multiple retrieval approaches are evaluated, and the best one is used:
 **Winner: RRF Hybrid Search** - Best overall performance with highest MRR (0.298) and competitive Hit Rate @5 (0.460)
 
 **Evaluation Notebooks:**
-- `notebooks/3_keyword_search_evaluation.ipynb`
-- `notebooks/4_semantic_search_evaluation_qdrant.ipynb`
-- `notebooks/5_hybrid_search_evaluation.ipynb`
+- [`notebooks/3_keyword_search_evaluation_minsearch.ipynb`]https://github.com/Adityagurung/Brahman.ai/blob/main/notebooks/3_keyword_search_evaluation_minsearch.ipynb
+- [`notebooks/4_semantic_search_evaluation_qdrant.ipynb`]https://github.com/Adityagurung/Brahman.ai/blob/bf91765c15692164b3bc19f8aa5005838c456255/notebooks/4_semantic_search_evaluation_qdrant.ipynb
+- [`notebooks/5_hybrid_search_evaluation_qdrant.ipynb`]https://github.com/Adityagurung/Brahman.ai/blob/main/notebooks/5_hybrid_search_evaluation_qdrant.ipynb
 
 ### RAG Evaluation
-**Status: Complete**
-
 Multiple RAG approaches are evaluated, and the best one is used:
 
 *[SCREENSHOT PLACEHOLDER: RAG evaluation results from offline evaluation notebook]*
@@ -337,11 +312,9 @@ Multiple RAG approaches are evaluated, and the best one is used:
 - **Metrics**: Relevance classification, response time, token usage, costs
 - **Models Compared**: GPT-3.5-turbo, GPT-4o, GPT-4o-mini, Ollama Phi3
 
-**Evaluation Notebook:** `notebooks/offline-rag-evaluation.ipynb`
+**Evaluation Notebook:** [`notebooks/offline-rag-evaluation.ipynb`]https://github.com/Adityagurung/Brahman.ai/blob/3b4f19ef13b21bd96088ed297a0e8babdd2b9af0/notebooks/offline-rag-evaluation.ipynb
 
 ### Interface
-**Status: Complete**
-
 Streamlit is used as the main interface:
 
 *[SCREENSHOT PLACEHOLDER: Streamlit travel assistant interface]*
@@ -354,10 +327,9 @@ Streamlit is used as the main interface:
 - **Response Metrics**: Display response time and relevance scores
 - **Conversation History**: Track previous interactions
 
-**File:** `app/app.py`
+**File:** [`app/app.py`]https://github.com/Adityagurung/Brahman.ai/blob/799898da2efd95ae3358cefaf3f8cfadb44de93e/app/app.py
 
 ### Ingestion Pipeline
-**Status: Complete**
 
 Automated ingestion pipeline processes travel documents:
 
