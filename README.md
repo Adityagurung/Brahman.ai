@@ -1,4 +1,4 @@
-# Brahman.ai - Intelligent Travel Assistant RAG System
+# Brahman.ai - Your Smart Travel Assistant
 
 *[VIDEO PLACEHOLDER: Streamlit UI Demo - add video showing the travel assistant interface in action]*
 
