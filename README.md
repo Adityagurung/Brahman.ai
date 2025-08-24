@@ -283,8 +283,7 @@ Both a knowledge base and an LLM are used in the RAG flow:
 Multiple retrieval approaches are evaluated, and the best one is used:
 
 **Evaluation Results:**
-https://github.com/Adityagurung/Brahman.ai/blob/main/images/evaluation_summary_table.png
-
+![alt text](images/evaluation_summary_table.png)
 **Winner: RRF Hybrid Search** - Best overall performance with highest MRR (0.298) and competitive Hit Rate @5 (0.460)
 
 **Evaluation Notebooks:**
