@@ -35,13 +35,9 @@ The system processes travel guide documents from Wikivoyage, creates a comprehen
 Modern travelers face numerous challenges when planning their journeys:
 
 **Information Overload**: Travelers are bombarded with scattered information across multiple websites, travel blogs, and guidebooks, making it difficult to find relevant and trustworthy information quickly.
-
 **Generic Recommendations**: Most travel platforms provide generic, one-size-fits-all recommendations that don't consider individual preferences or specific contexts.
-
 **Outdated Information**: Travel information becomes outdated quickly, and travelers often struggle to find current, accurate details about destinations.
-
 **Language Barriers**: Accessing local travel information in native languages can be challenging for international travelers.
-
 **Time-Intensive Research**: Planning a trip requires hours of research across multiple sources to gather comprehensive information about destinations, attractions, and logistics.
 
 **How Brahman.ai Solves These Problems:**
@@ -54,10 +50,7 @@ Our AI-powered travel assistant revolutionizes trip planning by:
 - **Comprehensive Coverage**: From cultural experiences to practical travel tips, all in one place
 
 ## Data Source
-
-### Wikivoyage - The Free Travel Guide
-
-Our primary data source is **[Wikivoyage](https://en.wikivoyage.org/wiki/Main_Page)**, a collaborative, free, and open-source travel guide that anyone can edit. Wikivoyage provides comprehensive, up-to-date travel information with a focus on practical advice for travelers.
+Our primary data source is from **[Wikivoyage](https://en.wikivoyage.org/wiki/Main_Page)**, a collaborative, free, and open-source travel guide. Wikivoyage provides comprehensive, up-to-date travel information with a focus on practical advice for travelers.
 
 **Data Processing Pipeline:**
 1. **PDF Download**: Direct download from Wikivoyage website
@@ -71,40 +64,40 @@ Our primary data source is **[Wikivoyage](https://en.wikivoyage.org/wiki/Main_Pa
 
 Our technology stack combines cutting-edge AI/ML tools with robust infrastructure components:
 
-### 1 **AI/ML Technologies**
+### 1. **AI/ML Technologies**
 - **Jina AI Embeddings v2**: 512-dimensional sentence embeddings for semantic search
 - **OpenAI GPT Models**: GPT-3.5-turbo, GPT-4o, GPT-4o-mini for text generation
 - **Ollama**: Local LLM support with Phi3 model
 - **LangChain**: Document processing and text splitting
 - **Sentence Transformers**: Additional embedding model support
 
-### 2 **Vector & Search Technologies**
+### 2. **Vector & Search Technologies**
 - **Qdrant**: High-performance vector database with FastEmbed integration
 - **MinSearch**: Lightweight keyword search for baseline comparisons
 - **BM25**: Sparse vector implementation for keyword matching
 - **Reciprocal Rank Fusion (RRF)**: Advanced hybrid search combining dense and sparse methods
 
-### 3 **Database & Storage**
+### 3. **Database & Storage**
 - **PostgreSQL**: Relational database for conversation logs and metadata
 - **pgAdmin**: Database administration interface
 - **Docker Volumes**: Persistent data storage
 - **Qdrant**: Vector database for storing, searching, and managing high-dimensional vector embeddings
 
-### 4 **Web Technologies**
+### 4. **Web Technologies**
 - **Streamlit**: Interactive web interface for the AI powered smart travel assistant
 - **Docker**: Containerization for all services
 - **Docker Compose**: Multi-container orchestration
 
-### 5 **Visualization & Monitoring**
+### 5. **Visualization & Monitoring**
 - **Grafana**: Real-time monitoring dashboards
 - **matplotlib & seaborn**: Python library for creating statistical, animated, and interactive data visualizations.
 
-### 6 **Document Processing**
+### 6. **Document Processing**
 - **Marker**: Advanced PDF-to-Markdown conversion
 - **Surya Models**: Document layout detection and OCR
 - **RecursiveCharacterTextSplitter**: Intelligent text chunking
 
-### 7 **Coding Tools**
+### 7. **Coding Tools**
 - **Jupyter Notebooks**: Coding in Python
 - **VS Code**: IDE used for development, debugging, running bash/shell terminal and source version control.
 
@@ -182,14 +175,14 @@ Follow these step-by-step instructions to set up Brahman.ai on your system:
 - Docker Compose 
 - Python 3.10+ 
 
-### Step 1: Clone the Repository
+### 1: Clone the Repository
 ```powershell
 # Open PowerShell as Administrator
 git clone https://github.com/Adityagurung/brahman.ai.git
 cd brahman.ai
 ```
 
-### Step 2: Environment Configuration
+### 2: Environment Configuration
 ```powershell
 # Copy the environment template
 copy .env.template .env
@@ -212,7 +205,7 @@ POSTGRES_PASSWORD=admin
 GRAFANA_ADMIN_PASSWORD=admin
 ```
 
-### Step 3: Start Docker Services
+### 3: Start Docker Services
 ```powershell
 # Ensure Docker Desktop is running
 # Start all services in background
@@ -222,7 +215,7 @@ docker-compose up -d
 docker-compose ps
 ```
 
-### Step 4: Initialize the System
+### 4: Initialize the System
 ```powershell
 # Create a virtual environment (optional)
 python -m venv venv
@@ -235,7 +228,7 @@ pip install -r requirements.txt
 python app/setup.py
 ```
 
-### Step 5: Access the Applications
+### 5: Access the Applications
 
 **Main Travel Assistant:**
 - URL: http://localhost:8501
@@ -255,7 +248,7 @@ python app/setup.py
 - URL: http://localhost:6333/dashboard
 - Vector database management interface
 
-### Step 6: Verify Installation
+### 6: Verify Installation
 ```powershell
 # Check all containers are running
 docker-compose logs streamlit
@@ -271,7 +264,6 @@ curl http://localhost:8501/health
 1. **Port Conflicts**: If ports are already in use, modify `docker-compose.yaml`
 2. **Memory Issues**: Ensure Docker has at least 4GB RAM allocated
 3. **API Key Issues**: Verify OpenAI API key is correctly set in `.env`
-4. **Network Issues**: Check Windows Firewall settings for Docker
 
 **Useful Commands:**
 ```powershell
