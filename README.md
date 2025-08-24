@@ -297,9 +297,9 @@ Multiple retrieval approaches are evaluated, and the best one is used:
 **Winner: RRF Hybrid Search** - Best overall performance with highest MRR (0.298) and competitive Hit Rate @5 (0.460)
 
 **Evaluation Notebooks:**
-- [`notebooks/3_keyword_search_evaluation_minsearch.ipynb`]https://github.com/Adityagurung/Brahman.ai/blob/main/notebooks/3_keyword_search_evaluation_minsearch.ipynb
-- [`notebooks/4_semantic_search_evaluation_qdrant.ipynb`]https://github.com/Adityagurung/Brahman.ai/blob/bf91765c15692164b3bc19f8aa5005838c456255/notebooks/4_semantic_search_evaluation_qdrant.ipynb
-- [`notebooks/5_hybrid_search_evaluation_qdrant.ipynb`]https://github.com/Adityagurung/Brahman.ai/blob/main/notebooks/5_hybrid_search_evaluation_qdrant.ipynb
+- [`notebooks/3_keyword_search_evaluation_minsearch.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/main/notebooks/3_keyword_search_evaluation_minsearch.ipynb)
+- [`notebooks/4_semantic_search_evaluation_qdrant.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/bf91765c15692164b3bc19f8aa5005838c456255/notebooks/4_semantic_search_evaluation_qdrant.ipynb)
+- [`notebooks/5_hybrid_search_evaluation_qdrant.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/main/notebooks/5_hybrid_search_evaluation_qdrant.ipynb)
 
 ### RAG Evaluation
 Multiple RAG approaches are evaluated, and the best one is used:
