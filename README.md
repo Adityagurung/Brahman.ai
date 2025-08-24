@@ -197,7 +197,7 @@ rm.env.template
 # OpenAI Configuration
 OPENAI_API_KEY=your_openai_api_key_here
 
-In .env file add config values for variables - Postgres, Qdrant, Ollama, Streamlit, Grafana and pgAdmin
+Add your config values in the .env file avariables for - Postgres, Qdrant, Ollama, Streamlit, Grafana and pgAdmin
 ```
 
 ### 3: Start Docker Services
@@ -218,7 +218,7 @@ python -m venv venv
 
 # Install dependencies
 pip install -r requirements.txt 
-Note: Not required this step if run by docker-compose build command. 
+Note: You can skip this step if you run the docker-compose build
 
 # Run the setup script to initialize database and index documents
 python app/setup.py
@@ -336,7 +336,7 @@ Streamlit is used as the main interface:
 
 User feedback is collected and there's a dashboard with different comprehensive charts:
 
-*[SCREENSHOT PLACEHOLDER: Grafana dashboard showing all monitoring charts]*
+*[SCREENSHOT PLACEHOLDER: Grafana dashboard showing all monitoring charts - WIP]*
 
 **Grafana Dashboard Charts:**
 1. **Last 5 Conversations** - Recent interaction table
