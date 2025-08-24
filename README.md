@@ -110,7 +110,7 @@ Our technology stack combines cutting-edge AI/ML tools with robust infrastructur
 
 ## RAG Flow
 
-*[DIAGRAM PLACEHOLDER: End-to-End RAG Pipeline Architecture]*
+![*\[DIAGRAM PLACEHOLDER: End-to-End RAG Pipeline Architecture\]*](https://github.com/Adityagurung/Brahman.ai/blob/main/images/end-to-end%20RAG%20flow.png)
 
 The Brahman.ai system follows a comprehensive RAG pipeline that ensures high-quality, relevant responses:
 
