@@ -312,7 +312,7 @@ Multiple RAG approaches are evaluated, and the best one is used:
 - **Metrics**: Relevance classification, response time, token usage, costs
 - **Models Compared**: GPT-3.5-turbo, GPT-4o, GPT-4o-mini, Ollama Phi3
 
-**Evaluation Notebook:** [`notebooks/offline-rag-evaluation.ipynb`]https://github.com/Adityagurung/Brahman.ai/blob/3b4f19ef13b21bd96088ed297a0e8babdd2b9af0/notebooks/offline-rag-evaluation.ipynb
+**Evaluation Notebook:** [`notebooks/offline-rag-evaluation.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/3b4f19ef13b21bd96088ed297a0e8babdd2b9af0/notebooks/offline-rag-evaluation.ipynb)
 
 ### Interface
 Streamlit is used as the main interface:
@@ -327,13 +327,10 @@ Streamlit is used as the main interface:
 - **Response Metrics**: Display response time and relevance scores
 - **Conversation History**: Track previous interactions
 
-**File:** [`app/app.py`]https://github.com/Adityagurung/Brahman.ai/blob/799898da2efd95ae3358cefaf3f8cfadb44de93e/app/app.py
+**File:** [`app/app.py`](https://github.com/Adityagurung/Brahman.ai/blob/799898da2efd95ae3358cefaf3f8cfadb44de93e/app/app.py)
 
-### Ingestion Pipeline
-
-Automated ingestion pipeline processes travel documents:
-
-**Pipeline Components:**
+### Ingestion
+**Ingestion Pipeline Components:**
 1. **PDF Processing**: Marker converts PDFs to Markdown
 2. **Text Chunking**: LangChain splitters create semantic chunks
 3. **ID Generation**: MD5 hashing for stable document IDs
@@ -341,14 +338,13 @@ Automated ingestion pipeline processes travel documents:
 5. **Database Storage**: Automated indexing in Qdrant
 
 **Automated Execution:**
-- **Setup Script**: `app/setup.py` runs the complete pipeline
-- **Processing Notebook**: `notebooks/1_process_pdf2Jsonl.ipynb`
-- **Ground Truth Generation**: `notebooks/2_ground_truth_data.ipynb`
+- **Setup Script**: [`app/setup.py`](https://github.com/Adityagurung/Brahman.ai/blob/237e5a349f01785ab537bd0fcf634c496f36b44e/app/setup.py) runs the complete ingestion pipeline
+- **Processing Notebook**: [`notebooks/1_process_pdf2Jsonl.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/38691d2e41d00408cc939daf3bed3e6216d31e59/notebooks/1_process_pdf2Jsonl.ipynb)
+- **Ground Truth Generation**: [`notebooks/2_ground_truth_data.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/8c99dea46a4b44e7f068a571cee46ca66eed68c2/notebooks/2_ground_truth_data.ipynb)
 
 ### Monitoring
-**Status: Complete**
 
-User feedback is collected and there's a dashboard with 7 comprehensive charts:
+User feedback is collected and there's a dashboard with different comprehensive charts:
 
 *[SCREENSHOT PLACEHOLDER: Grafana dashboard showing all monitoring charts]*
 
@@ -367,32 +363,30 @@ User feedback is collected and there's a dashboard with 7 comprehensive charts:
 - **User Feedback**: Thumbs up/down collection system
 - **Cost Tracking**: Detailed OpenAI API cost monitoring
 
-**Files:** `grafana/dashboard.json`, `grafana/init.py`
+**Files:** [`grafana/dashboard.json`](https://github.com/Adityagurung/Brahman.ai/blob/868d444a3b142098d9498455df30c7358509bf46/grafana/dashboard.json), [`grafana/init.py`](https://github.com/Adityagurung/Brahman.ai/blob/d72073aa39f42b21c2e82fa1427b5115025eb87b/grafana/init.py)
 
 ### Containerization
-**Status: Complete**
 
 Everything runs in Docker containers for easy deployment:
 
 **Docker Compose Services:**
 - **Streamlit**: Main web application
 - **Qdrant**: Vector database service
-- **PostgreSQL**: Relational database for logs
+- **PostgreSQL**: Relational database for conversation and feedback tables
 - **Grafana**: Monitoring dashboard
 - **pgAdmin**: Database administration
 - **Ollama**: Local LLM service
 
-**Benefits:**
+**Treat:**
 - **One-Command Setup**: `docker-compose up -d`
 - **Isolated Environment**: No local dependencies
 - **Scalable Architecture**: Easy service scaling
 - **Network Configuration**: Internal service communication
 - **Volume Persistence**: Data survives container restarts
 
-**File:** `docker-compose.yaml`
+**File:** [`docker-compose.yaml`](https://github.com/Adityagurung/Brahman.ai/blob/e24289b5f122cf235311650a7f97df77dd394fdc/docker-compose.yamldocker-compose.yaml)
 
 ### Reproducibility
-**Status: Complete**
 
 Complete step-by-step instructions provided for Windows 11 setup. See [Reproducibility](#reproducibility) section above for detailed instructions including:
 - Prerequisites installation
