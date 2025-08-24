@@ -376,47 +376,32 @@ Everything runs in Docker containers for easy deployment:
 - **Ollama**: Local LLM service
 
 **Treat:**
-- **Turn Key Solution**: `docker-compose up -d`
+- **Turn Key Solution**: `docker-compose up -d` Complete setup 
   **File:** [`docker-compose.yaml`](https://github.com/Adityagurung/Brahman.ai/blob/e24289b5f122cf235311650a7f97df77dd394fdc/docker-compose.yaml)
 ### Reproducibility
 
-Complete step-by-step instructions provided for Windows 11. See [Reproducibility](#reproducibility) section above for detailed instructions including:
-- Prerequisites installation
-- Environment configuration
-- Docker setup
-- Service initialization
-- Verification steps
-- Troubleshooting guide
+Complete step-by-step instructions provided for Windows 11. See [`Reproducibility`](#reproducibility) section above for detailed instructions
 
 ### Best Practices
-**Status: Complete**
-
-**Hybrid Search (3 points)**: ✅ **Implemented**
+**Hybrid Search**: ✅
 - Combines dense semantic vectors (Jina embeddings) with sparse BM25 vectors
 - RRF (Reciprocal Rank Fusion) for optimal result combination
-- **Notebook**: `notebooks/5_hybrid_search_evaluation.ipynb`
+- **Notebook**: [`notebooks/5_hybrid_search_evaluation.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/451b633e265a16223b05b44ae44b1047b01d850b/notebooks/5_hybrid_search_evaluation_qdrant.ipynb)
 
-**Document Re-ranking (1 point)**: ✅ **Implemented**
+**Document Re-ranking**: ✅
 - RRF algorithm re-ranks results from multiple search strategies
 - Multi-stage search with dense prefetch followed by sparse re-ranking
-- **Implementation**: `rag.py` hybrid search functions
+- **Implementation**: [`rag.py`](https://github.com/Adityagurung/Brahman.ai/blob/9030456007b3ba6ad762b2347320e56ac7e2b4fd/app/rag.py)
 
-**User Query Rewriting (1 point)**: ✅ **Implemented**
+**User Query Rewriting**: ✅
 - Travel-specific prompt template optimizes queries for domain context
 - Context-aware prompt engineering for better LLM responses
-- **Implementation**: `app/app.py` prompt template formatting
+- **Implementation**: [`app/app.py`](https://github.com/Adityagurung/Brahman.ai/blob/799898da2efd95ae3358cefaf3f8cfadb44de93e/app/app.py)
 
 ### Deployment
 **Status: Planned**
 
-Cloud deployment is planned for Hetzner Cloud platform but not currently implemented due to time constraints. The containerized architecture makes cloud deployment straightforward when ready.
-
-**Planned Deployment:**
-- **Platform**: Hetzner Cloud (cost-effective European provider)
-- **Architecture**: Multi-container deployment with load balancing
-- **Database**: Managed PostgreSQL instance
-- **Monitoring**: Cloud-native Grafana deployment
-- **Domain**: Custom domain with HTTPS
+Cloud deployment is planned but not currently implemented due to time constraints. The containerized architecture makes cloud deployment straightforward when ready.
 
 ## License
 
@@ -442,7 +427,7 @@ copies or substantial portions of the Software.
 
 Special thanks to:
 
-- **[Alexey Grigorev](https://github.com/alexeygrigorev)** - For his outstanding contributions to the ML and data engineering community, and for inspiring this project through his educational content and open-source work.
+- **[Alexey Grigorev](https://github.com/alexeygrigorev)** - For his outstanding contributions to the ML,DS and DE community, and for inspiring this project through his educational content and open-source work.
 
 - **[DataTalks.Club](https://datatalks.club/)** - For providing an incredible learning platform and community that fosters knowledge sharing in data science, machine learning, and data engineering. The concepts and best practices learned through DataTalks.Club courses directly influenced this project's architecture and implementation.
 
@@ -452,6 +437,7 @@ Special thanks to:
 
 ---
 
-**Built with ❤️ by Aditya**
+**Built with ❤️ by Aditya Gurung** 
+email - [aditya.gurung03@outlook.com]
 
 *For questions, issues, or contributions, please visit our [GitHub repository](https://github.com/Adityagurung/brahman.ai).*
