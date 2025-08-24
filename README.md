@@ -438,6 +438,7 @@ Special thanks to:
 ---
 
 **Built with ❤️ by Aditya Gurung** 
-email - [aditya.gurung03@outlook.com]
+
+email - `aditya.gurung03@outlook.com`
 
 *For questions, issues, or contributions, please visit our [GitHub repository](https://github.com/Adityagurung/brahman.ai).*
