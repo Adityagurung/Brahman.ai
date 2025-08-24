@@ -63,8 +63,6 @@ Our primary data source is **[Wikivoyage](https://en.wikivoyage.org/wiki/Main_Pa
 3. **Processing**: Automated conversion and chunking (see [Ingestion Pipeline](https://github.com/Adityagurung/Brahman.ai/blob/38691d2e41d00408cc939daf3bed3e6216d31e59/notebooks/1_process_pdf2Jsonl.ipynb))
 4. **Indexing**: Vector embeddings and search index creation
 
-*[SCREENSHOT PLACEHOLDER: Wikivoyage website showing the travel guides used]*
-
 ## Technologies Used
 
 Our technology stack combines cutting-edge AI/ML tools with robust infrastructure components:
@@ -327,7 +325,7 @@ Streamlit is used as the main interface:
 - **Response Metrics**: Display response time and relevance scores
 - **Conversation History**: Track previous interactions
 
-**File:** [`app/app.py`](https://github.com/Adityagurung/Brahman.ai/blob/799898da2efd95ae3358cefaf3f8cfadb44de93e/app/app.py)
+  **File:** [`app/app.py`](https://github.com/Adityagurung/Brahman.ai/blob/799898da2efd95ae3358cefaf3f8cfadb44de93e/app/app.py)
 
 ### Ingestion
 **Ingestion Pipeline Components:**
@@ -363,7 +361,7 @@ User feedback is collected and there's a dashboard with different comprehensive 
 - **User Feedback**: Thumbs up/down collection system
 - **Cost Tracking**: Detailed OpenAI API cost monitoring
 
-**Files:** [`grafana/dashboard.json`](https://github.com/Adityagurung/Brahman.ai/blob/868d444a3b142098d9498455df30c7358509bf46/grafana/dashboard.json), [`grafana/init.py`](https://github.com/Adityagurung/Brahman.ai/blob/d72073aa39f42b21c2e82fa1427b5115025eb87b/grafana/init.py)
+  **Files:** [`grafana/dashboard.json`](https://github.com/Adityagurung/Brahman.ai/blob/868d444a3b142098d9498455df30c7358509bf46/grafana/dashboard.json), [`grafana/init.py`](https://github.com/Adityagurung/Brahman.ai/blob/d72073aa39f42b21c2e82fa1427b5115025eb87b/grafana/init.py)
 
 ### Containerization
 
@@ -372,23 +370,17 @@ Everything runs in Docker containers for easy deployment:
 **Docker Compose Services:**
 - **Streamlit**: Main web application
 - **Qdrant**: Vector database service
-- **PostgreSQL**: Relational database for conversation and feedback tables
+- **PostgreSQL**: Relational database for logs
 - **Grafana**: Monitoring dashboard
 - **pgAdmin**: Database administration
 - **Ollama**: Local LLM service
 
 **Treat:**
-- **One-Command Setup**: `docker-compose up -d`
-- **Isolated Environment**: No local dependencies
-- **Scalable Architecture**: Easy service scaling
-- **Network Configuration**: Internal service communication
-- **Volume Persistence**: Data survives container restarts
-
-**File:** [`docker-compose.yaml`](https://github.com/Adityagurung/Brahman.ai/blob/e24289b5f122cf235311650a7f97df77dd394fdc/docker-compose.yamldocker-compose.yaml)
-
+- **Turn Key Solution**: `docker-compose up -d`
+  **File:** [`docker-compose.yaml`](https://github.com/Adityagurung/Brahman.ai/blob/e24289b5f122cf235311650a7f97df77dd394fdc/docker-compose.yaml)
 ### Reproducibility
 
-Complete step-by-step instructions provided for Windows 11 setup. See [Reproducibility](#reproducibility) section above for detailed instructions including:
+Complete step-by-step instructions provided for Windows 11. See [Reproducibility](#reproducibility) section above for detailed instructions including:
 - Prerequisites installation
 - Environment configuration
 - Docker setup
