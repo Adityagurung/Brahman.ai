@@ -2,7 +2,7 @@
 ![images\Brahman.ai.png](https://github.com/Adityagurung/Brahman.ai/blob/35a28c05d99dd7777a4ec472cf12eac17f0b47e9/images/Brahman.ai.png) 
 
 
-*[VIDEO PLACEHOLDER: Streamlit UI Demo - add video showing the travel assistant interface in action]*
+*[VIDEO PLACEHOLDER: Streamlit UI Demo]*
 
 ## Table of Contents
 
