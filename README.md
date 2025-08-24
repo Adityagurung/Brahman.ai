@@ -183,14 +183,13 @@ Follow these step-by-step instructions to set up Brahman.ai on your system:
 - Python 3.10+ 
 
 ### Step 1: Clone the Repository
-```powershell
-# Open PowerShell as Administrator
+```
 git clone https://github.com/Adityagurung/brahman.ai.git
 cd brahman.ai
 ```
 
 ### Step 2: Environment Configuration
-```powershell
+```
 # Copy the environment template
 copy .env.template .env
 
