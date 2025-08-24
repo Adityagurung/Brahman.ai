@@ -2,7 +2,7 @@
 ![images\Brahman.ai.png](https://github.com/Adityagurung/Brahman.ai/blob/35a28c05d99dd7777a4ec472cf12eac17f0b47e9/images/Brahman.ai.png) 
 
 
-*[VIDEO PLACEHOLDER: Streamlit UI Demo - ]*
+*[VIDEO PLACEHOLDER: Streamlit UI Demo - WIP ]*
 
 ## Table of Contents
 
@@ -283,15 +283,7 @@ Both a knowledge base and an LLM are used in the RAG flow:
 Multiple retrieval approaches are evaluated, and the best one is used:
 
 **Evaluation Results:**
-*[SCREENSHOT PLACEHOLDER: Evaluation summary table showing performance metrics]*
-
-| Method | Hit Rate @1 | Hit Rate @5 | MRR | Avg Time (ms) |
-|--------|-------------|-------------|-----|---------------|
-| BM25 Sparse | 0.180 | 0.360 | 0.246 | 23.4 |
-| Dense Semantic | 0.190 | 0.460 | 0.291 | 26.4 |
-| Multi-stage | 0.180 | 0.360 | 0.246 | 34.8 |
-| **RRF Hybrid** | **0.220** | **0.460** | **0.298** | 38.0 |
-
+(https://github.com/Adityagurung/Brahman.ai/blob/main/images/evaluation_summary_table.png)
 **Winner: RRF Hybrid Search** - Best overall performance with highest MRR (0.298) and competitive Hit Rate @5 (0.460)
 
 **Evaluation Notebooks:**
