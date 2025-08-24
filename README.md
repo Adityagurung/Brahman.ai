@@ -3,6 +3,8 @@
 
 <video controls src="images/demo.mp4" title="Title"></video>
 
+https://github.com/user-attachments/assets/17bf15ce-a2bf-40f6-abb0-05ffb3168083
+
 *[VIDEO PLACEHOLDER: Streamlit UI Demo - WIP ]*
 
 ## Table of Contents
