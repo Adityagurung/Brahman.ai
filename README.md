@@ -8,7 +8,7 @@
 
 - [Project Overview](#project-overview)
 - [Problem Statement](#problem-statement)
-- [Dataset/Data Sources](#datasetdata-sources)
+- [Data Sources](#data-sources)
 - [Technologies Used](#technologies-used)
 - [RAG Flow](#rag-flow)
 - [Reproducibility](#reproducibility)
@@ -53,7 +53,7 @@ Our AI-powered travel assistant revolutionizes trip planning by:
 - **Real-time Relevance**: Advanced search algorithms ensure the most relevant information surfaces first
 - **Comprehensive Coverage**: From cultural experiences to practical travel tips, all in one place
 
-## Data Source
+## Data Sources
 
 Our primary data source is **[Wikivoyage](https://en.wikivoyage.org/wiki/Main_Page)**, a collaborative, free, and open-source travel guide. Wikivoyage provides comprehensive, up-to-date travel information with a focus on practical advice for travelers.
 
@@ -377,6 +377,7 @@ Everything runs in Docker containers for easy deployment:
 
 **Treat:**
 - **Turn Key Solution**: `docker-compose up -d` Complete setup 
+
   **File:** [`docker-compose.yaml`](https://github.com/Adityagurung/Brahman.ai/blob/e24289b5f122cf235311650a7f97df77dd394fdc/docker-compose.yaml)
 ### Reproducibility
 
@@ -441,4 +442,4 @@ Special thanks to:
 
 email - `aditya.gurung03@outlook.com`
 
-*For questions, issues, or contributions, please visit our [GitHub repository](https://github.com/Adityagurung/brahman.ai).*
+*For questions, issues, or contributions, please visit my [GitHub repository](https://github.com/Adityagurung/brahman.ai).*
