@@ -1,7 +1,7 @@
 # Brahman.ai - Your Smart Travel Assistant
 ![alt text](images/Brahman.ai.png)
 
-
+<video controls src="images/demo.mp4" title="Title"></video>
 *[VIDEO PLACEHOLDER: Streamlit UI Demo - WIP ]*
 
 ## Table of Contents
