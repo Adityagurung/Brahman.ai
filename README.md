@@ -370,7 +370,7 @@ Everything runs in Docker containers for easy deployment:
 **Treat:**
 - **Turn Key Solution**: `docker-compose up -d` Complete setup 
 
-  **File:** [`docker-compose.yaml`][text](docker-compose-secure.yaml)
+  **File:** [docker-compose.yaml](docker-compose-secure.yaml)
 ### Reproducibility
 
 Complete step-by-step instructions provided for Windows 11. See [`Reproducibility`](#reproducibility) section above for detailed instructions
