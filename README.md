@@ -114,7 +114,7 @@ Our technology stack combines cutting-edge AI/ML tools with robust infrastructur
 
 The Brahman.ai system follows a comprehensive RAG pipeline that ensures high-quality, relevant responses:
 
-### 1. **Data Ingestion** 📥
+### 1. **Data Ingestion** 
 ```
 Wikivoyage PDFs → Marker Conversion → Markdown → LangChain Splitting → JSON Chunks
 ```
@@ -123,7 +123,7 @@ Wikivoyage PDFs → Marker Conversion → Markdown → LangChain Splitting → J
 - LangChain splits documents into semantic chunks (500 chars, 100 overlap)
 - Metadata preserved for traceability
 
-### 2. **Knowledge Base Creation** 🧠
+### 2. **Knowledge Base Creation** 
 ```
 Text Chunks → Jina Embeddings → Qdrant Vector DB → BM25 Indexing → Hybrid Collection
 ```
@@ -132,7 +132,7 @@ Text Chunks → Jina Embeddings → Qdrant Vector DB → BM25 Indexing → Hybri
 - Both stored in Qdrant hybrid collections
 - Automatic indexing with MD5-based document IDs
 
-### 3. **Query Processing** 🔍
+### 3. **Query Processing** 
 ```
 User Query → Search Strategy Selection → Multi-Vector Retrieval → RRF Fusion → Top-K Results
 ```
@@ -140,7 +140,7 @@ User Query → Search Strategy Selection → Multi-Vector Retrieval → RRF Fusi
 - **Keyword Search**: BM25 sparse vector matching
 - **Hybrid Search**: Reciprocal Rank Fusion (RRF) combining both approaches
 
-### 4. **Context Assembly** 📝
+### 4. **Context Assembly** 
 ```
 Retrieved Documents → Prompt Template → Context Injection → LLM-Ready Prompt
 ```
@@ -148,7 +148,7 @@ Retrieved Documents → Prompt Template → Context Injection → LLM-Ready Prom
 - Travel-specific prompt template with guidelines
 - Context-aware prompt engineering for travel recommendations
 
-### 5. **Response Generation** 🤖
+### 5. **Response Generation** 
 ```
 Enhanced Prompt → LLM Selection → API Call → Response Processing → Answer Delivery
 ```
@@ -156,7 +156,7 @@ Enhanced Prompt → LLM Selection → API Call → Response Processing → Answe
 - Token usage tracking and cost calculation
 - Response time monitoring
 
-### 6. **Quality Assessment** ✅
+### 6. **Quality Assessment** 
 ```
 Generated Answer → Relevance Evaluation → LLM-as-Judge → Quality Scoring → Feedback Loop
 ```
@@ -164,7 +164,7 @@ Generated Answer → Relevance Evaluation → LLM-as-Judge → Quality Scoring �
 - chatGPT as evaluation judge
 - Continuous quality monitoring
 
-### 7. **Monitoring & Analytics** 📊
+### 7. **Monitoring & Analytics** 
 ```
 All Interactions → PostgreSQL Logging → Grafana Visualization → Performance Insights
 ```
