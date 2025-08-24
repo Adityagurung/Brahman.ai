@@ -157,7 +157,7 @@ __marimo__/
 qdrant_storage/
 
 #docker
-docker
+docker-compose.yaml
 
 # Temporary files
 tmp/
