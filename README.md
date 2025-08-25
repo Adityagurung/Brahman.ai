@@ -304,6 +304,9 @@ Multiple RAG approaches are evaluated, and the best one is used:
 
 **Evaluation Notebook:** [`notebooks/offline-rag-evaluation.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/3b4f19ef13b21bd96088ed297a0e8babdd2b9af0/notebooks/offline-rag-evaluation.ipynb)
 
+
+![Cosine similarity score on sample size data](images/cosine_similarity_btw_models.png)
+
 ### Interface
 Streamlit is used as the main interface:
 
