@@ -296,6 +296,9 @@ Multiple RAG approaches are evaluated, and the best one is used:
 
 ![alt text](images/cosine_similarity_multiple_examples.png)
 
+Cosine similarity score on a sample size data [results](results/cosine_similarities_multiple.csv)
+![alt text](images/cosine_similarity_btw_models.png)
+
 **Evaluation Framework:**
 - **Ground Truth Dataset**: 735 travel questions across 149 documents
 - **LLM-as-Judge**: GPT-4o-mini for relevance evaluation
@@ -303,9 +306,6 @@ Multiple RAG approaches are evaluated, and the best one is used:
 - **Models Compared**: GPT-3.5-turbo, GPT-4o, GPT-4o-mini, Ollama Phi3
 
 **Evaluation Notebook:** [`notebooks/offline-rag-evaluation.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/3b4f19ef13b21bd96088ed297a0e8babdd2b9af0/notebooks/offline-rag-evaluation.ipynb)
-
-
-![Cosine similarity score on sample size data](images/cosine_similarity_btw_models.png)
 
 ### Interface
 Streamlit is used as the main interface:
