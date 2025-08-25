@@ -329,7 +329,7 @@ Streamlit is used as the main interface:
 
 **Automated Execution:**
 - **Setup Script**: [`app/setup.py`](https://github.com/Adityagurung/Brahman.ai/blob/237e5a349f01785ab537bd0fcf634c496f36b44e/app/setup.py) runs the complete ingestion pipeline
-- **Processing Notebook**: [`notebooks/1_process_pdf2Jsonl.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/38691d2e41d00408cc939daf3bed3e6216d31e59/notebooks/1_process_pdf2Jsonl.ipynb)
+- **Processing Notebook**: [`notebooks/1_process_pdf2Jsonl.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/38691d2e41d00408cc939daf3bed3e6216d31e59/notebooks/1_process_pdf2Jsonl.ipynb), [`transformers/chunks.ipynb`](transformers/chunks.ipynb)
 - **Ground Truth Generation**: [`notebooks/2_ground_truth_data.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/8c99dea46a4b44e7f068a571cee46ca66eed68c2/notebooks/2_ground_truth_data.ipynb)
 
 ### Monitoring
