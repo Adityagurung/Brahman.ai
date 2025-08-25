@@ -296,7 +296,7 @@ Multiple RAG approaches are evaluated, and the best one is used:
 
 ![alt text](images/cosine_similarity_multiple_examples.png)
 
-Cosine similarity scores with different models on a sample size data[results](results/cosine_similarities_multiple.csv)
+Cosine similarity scores with different models on a sample size data [results](results/cosine_similarities_multiple.csv)
 
 ![alt text](images/cosine_similarity_btw_models.png)
 
