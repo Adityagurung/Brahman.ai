@@ -372,7 +372,7 @@ Everything runs in Docker containers for easy deployment:
 - **Ollama**: Local LLM service
 
 **Treat:**
-- **Turn Key Solution**: `docker-compose up -d` Complete setup 
+- **Turn Key Solution**: `docker-compose up -d --build` it will create complete setup and run your services. 
 
   **File:** [docker-compose.yaml](docker-compose-secure.yaml)
 ### Reproducibility
