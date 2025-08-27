@@ -14,7 +14,32 @@ from db import (
 def print_log(message):
     """Print log message"""
     print(message, flush=True)
-
+    
+def main():
+    print_log("Starting the RAG Travel Assistant application")
+    
+    # Add connection testing
+    try:
+        print_log("Testing database connection...")
+        from db import get_db_connection
+        conn = get_db_connection()
+        conn.close()
+        print_log("Database connection successful")
+    except Exception as e:
+        print_log(f"Database connection failed: {e}")
+        st.error("Database connection failed. Please check your configuration.")
+        return
+    
+    try:
+        print_log("Testing Qdrant connection...")
+        from qdrant_client import QdrantClient
+        qdrant_client = QdrantClient(os.getenv("QDRANT_URL", "http://localhost:6333"))
+        collections = qdrant_client.get_collections()
+        print_log("Qdrant connection successful")
+    except Exception as e:
+        print_log(f"Qdrant connection failed: {e}")
+        st.warning("Vector database connection failed. Some features may not work.")
+    
 def inject_custom_css():
     """Inject custom CSS for the submit button design"""
     st.markdown("""
