@@ -45,7 +45,7 @@ Brahman.ai is a sophisticated Retrieval-Augmented Generation (RAG) system design
 **How Brahman.ai Solves These Problems:**
 
 Our AI-powered travel assistant revolutionizes trip planning by:
-- **Centralized Knowledge Base**: Curated information from reliable sources like Wikivoyage
+- **Centralized Knowledge Base**: Curated information from reliable source
 - **Intelligent Query Understanding**: Natural language processing to understand complex travel questions
 - **Contextual Recommendations**: Personalized suggestions based on specific travel needs
 - **Real-time Relevance**: Advanced search algorithms ensure the most relevant information surfaces first
