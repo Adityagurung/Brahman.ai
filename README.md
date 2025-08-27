@@ -18,9 +18,7 @@ https://github.com/user-attachments/assets/17bf15ce-a2bf-40f6-abb0-05ffb3168083
 
 ## Project Overview
 
-Brahman.ai is a sophisticated Retrieval-Augmented Generation (RAG) system designed specifically for travel planning and destination discovery. This intelligent travel assistant combines the power of vector databases, multiple search strategies, and large language models to provide accurate, contextual, and helpful travel recommendations.
-
-The system processes travel guide documents from Wikivoyage, creates a comprehensive knowledge base, and enables users to ask natural language questions about destinations, attractions, cultural experiences, and travel planning. What sets this project apart is its rigorous evaluation framework that compares multiple retrieval strategies and implements hybrid search for optimal performance.
+Brahman.ai is a sophisticated Retrieval-Augmented Generation (RAG) system designed specifically for travel planning,destination discovery and cultural experience. This intelligent travel assistant system processes documents from raw files which creates a comprehensive knowledge base that combines the power of vector databases, multiple search strategies, and large language models to provide accurate, contextual, and helpful travel recommendations.
 
 **Key Features:**
 - **Multi-Modal Search**: Combines semantic search, keyword search, and hybrid approaches
