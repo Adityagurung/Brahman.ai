@@ -340,7 +340,8 @@ Streamlit is used as the main interface:
 
 User feedback is collected and there's a dashboard with different comprehensive charts:
 
-*[SCREENSHOT PLACEHOLDER: Grafana dashboard showing all monitoring charts - WIP]*
+![alt text](images/feedback_1_grafana.png)
+![alt text](images/feedback_2_grafana.png)
 
 **Grafana Dashboard Charts:**
 1. **Last 5 Conversations** - Recent interaction table
