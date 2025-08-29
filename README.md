@@ -195,7 +195,7 @@ rm.env.template
 # OpenAI Configuration
 OPENAI_API_KEY=your_openai_api_key_here
 
-Add your config values in the .env file avariables for - Postgres, Qdrant, Ollama, Streamlit, Grafana and pgAdmin
+Add config values in the .env file for - Postgres, Qdrant, Ollama, Streamlit, Grafana and pgAdmin
 ```
 
 ### 3: Start Docker Services
