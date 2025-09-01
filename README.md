@@ -369,7 +369,7 @@ Everything runs in Docker containers for easy deployment:
 **Treat:**
 - **Turnkey Solution**: `docker-compose up -d --build` it will create complete setup and run your services. 
 
-  **File:** [docker-compose.yaml](docker-compose-secure.yaml)
+  **File:** [docker-compose.yaml](docker-compose.yaml)
 ### Reproducibility
 
 Complete step-by-step instructions provided for Windows 11. See [`Reproducibility`](#reproducibility) section above for detailed instructions
