@@ -32,17 +32,13 @@ Brahman.ai is a sophisticated Retrieval-Augmented Generation (RAG) system design
 
 ### Modern travelers face numerous challenges when planning their journeys:
 
-**Information Overload**: Travelers are bombarded with scattered information across multiple websites, travel blogs, and guidebooks, making it difficult to find relevant and trustworthy information quickly.
+- **Information Overload**: Travelers are bombarded with scattered information across multiple websites, travel blogs, and guidebooks, making it difficult to find relevant and trustworthy information quickly.
+- **Generic Recommendations**: Most travel platforms provide generic, one-size-fits-all recommendations that don't consider individual preferences or specific contexts.
+- **Outdated Information**: Travel information becomes outdated quickly, and travelers often struggle to find current, accurate details about destinations.
+- **Language Barriers**: Accessing local travel information in native languages can be challenging for international travelers.
+- **Time-Intensive Research**: Planning a trip requires hours of research across multiple sources to gather comprehensive information about destinations, attractions, and logistics.
 
-**Generic Recommendations**: Most travel platforms provide generic, one-size-fits-all recommendations that don't consider individual preferences or specific contexts.
-
-**Outdated Information**: Travel information becomes outdated quickly, and travelers often struggle to find current, accurate details about destinations.
-
-**Language Barriers**: Accessing local travel information in native languages can be challenging for international travelers.
-
-**Time-Intensive Research**: Planning a trip requires hours of research across multiple sources to gather comprehensive information about destinations, attractions, and logistics.
-
-**How Brahman.ai Solves These Problems:**
+### **How Brahman.ai Solves These Problems:**
 
 Our AI-powered travel assistant revolutionizes trip planning by:
 - **Centralized Knowledge Base**: Curated information from reliable source
