@@ -14,7 +14,7 @@ def get_db_connection():
     """Create database connection using environment variables"""
     return psycopg2.connect(
         host=os.getenv("POSTGRES_HOST", "localhost"),
-        database=os.getenv("POSTGRES_DB", "brahman"),
+        database=os.getenv("POSTGRES_DB", "Bhramana"),
         user=os.getenv("POSTGRES_USER", "admin"),
         password=os.getenv("POSTGRES_PASSWORD", "admin"),
         port=int(os.getenv("POSTGRES_PORT", 5432))

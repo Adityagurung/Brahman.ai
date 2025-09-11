@@ -36,7 +36,7 @@ services:
     container_name: postgres
     environment:
       - POSTGRES_HOST=${POSTGRES_HOST:-postgres}
-      - POSTGRES_DB=${POSTGRES_DB:-brahman}
+      - POSTGRES_DB=${POSTGRES_DB:-Bhramana}
       - POSTGRES_USER=${POSTGRES_USER:-admin}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-admin}
     ports:
@@ -70,7 +70,7 @@ services:
       - QDRANT_URL=http://qdrant:6333
       - OLLAMA_URL=http://ollama:11434/v1/
       - POSTGRES_HOST=${POSTGRES_HOST:-postgres}
-      - POSTGRES_DB=${POSTGRES_DB:-brahman}
+      - POSTGRES_DB=${POSTGRES_DB:-Bhramana}
       - POSTGRES_USER=${POSTGRES_USER:-admin}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-admin}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
@@ -109,7 +109,7 @@ services:
       - GRAFANA_ADMIN_USER=${GRAFANA_ADMIN_USER:-admin}
       - GRAFANA_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-admin}
       - POSTGRES_HOST=${POSTGRES_HOST:-postgres}
-      - POSTGRES_DB=${POSTGRES_DB:-brahman}
+      - POSTGRES_DB=${POSTGRES_DB:-Bhramana}
       - POSTGRES_USER=${POSTGRES_USER:-admin}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-admin}
       - POSTGRES_PORT=${POSTGRES_PORT:-5432}
