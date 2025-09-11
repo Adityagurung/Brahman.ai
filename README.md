@@ -38,7 +38,7 @@ https://github.com/user-attachments/assets/17bf15ce-a2bf-40f6-abb0-05ffb3168083
 - **Language Barriers**: Accessing local travel information in native languages can be challenging for international travelers.
 - **Time-Intensive Research**: Planning a trip requires hours of research across multiple sources to gather comprehensive information about destinations, attractions, and logistics.
 
-### **How Brahman.ai Solves These Problems:**
+### **How Brahman.ai solves these problems:**
 
 Our AI-powered travel assistant revolutionizes trip planning by:
 - **Centralized Knowledge Base**: Curated information from reliable source
