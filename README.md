@@ -1,5 +1,5 @@
-# Bhramana.ai - Your Smart Travel Assistant
-![alt text](images/Bhramana.ai.png)
+# Brahman.ai - Your Smart Travel Assistant
+![alt text](images/Brahman.ai.png)
 
 https://github.com/user-attachments/assets/17bf15ce-a2bf-40f6-abb0-05ffb3168083
 
@@ -18,7 +18,7 @@ https://github.com/user-attachments/assets/17bf15ce-a2bf-40f6-abb0-05ffb3168083
 
 ## Project Overview
 
-Bhramana.ai is a sophisticated Retrieval-Augmented Generation (RAG) system designed specifically for travel planning,destination discovery and cultural experience. This intelligent travel assistant system processes documents from raw files which creates a comprehensive knowledge base that combines the power of vector databases, multiple search strategies, and large language models to provide accurate, contextual, and helpful travel recommendations.
+Brahman.ai is a sophisticated Retrieval-Augmented Generation (RAG) system designed specifically for travel planning,destination discovery and cultural experience. This intelligent travel assistant system processes documents from raw files which creates a comprehensive knowledge base that combines the power of vector databases, multiple search strategies, and large language models to provide accurate, contextual, and helpful travel recommendations.
 
 **Key Features:**
 - **Multi-Modal Search**: Combines semantic search, keyword search, and hybrid approaches
@@ -38,7 +38,7 @@ Bhramana.ai is a sophisticated Retrieval-Augmented Generation (RAG) system desig
 - **Language Barriers**: Accessing local travel information in native languages can be challenging for international travelers.
 - **Time-Intensive Research**: Planning a trip requires hours of research across multiple sources to gather comprehensive information about destinations, attractions, and logistics.
 
-### **How Bhramana.ai Solves These Problems:**
+### **How Brahman.ai Solves These Problems:**
 
 Our AI-powered travel assistant revolutionizes trip planning by:
 - **Centralized Knowledge Base**: Curated information from reliable source
@@ -54,7 +54,7 @@ Our primary data source is **[Wikivoyage](https://en.wikivoyage.org/wiki/Main_Pa
 **Data Processing Pipeline:**
 1. **PDF Download**: Direct download from Wikivoyage website
 2. **Storage**: Raw PDFs stored in `data/raw/` directory
-3. **Processing**: Automated conversion and chunking (see [Ingestion Pipeline](https://github.com/Adityagurung/Bhramana.ai/blob/38691d2e41d00408cc939daf3bed3e6216d31e59/notebooks/1_process_pdf2Jsonl.ipynb))
+3. **Processing**: Automated conversion and chunking (see [Ingestion Pipeline](https://github.com/Adityagurung/Brahman.ai/blob/38691d2e41d00408cc939daf3bed3e6216d31e59/notebooks/1_process_pdf2Jsonl.ipynb))
 4. **Indexing**: Vector embeddings and search index creation
 
 ## Technologies Used
@@ -162,7 +162,7 @@ All Interactions → PostgreSQL Logging → Grafana Visualization → Performanc
 
 ## Reproducibility
 
-Follow these step-by-step instructions to set up Bhramana.ai on your system:
+Follow these step-by-step instructions to set up Brahman.ai on your system:
 
 ### Prerequisites
 - Git installed
@@ -172,8 +172,8 @@ Follow these step-by-step instructions to set up Bhramana.ai on your system:
 
 ### 1: Clone the Repository
 ```
-git clone https://github.com/Adityagurung/Bhramana.ai.git
-cd Bhramana.ai
+git clone https://github.com/Adityagurung/Brahman.ai.git
+cd Brahman.ai
 ```
 
 ### 2: Environment Configuration
@@ -262,7 +262,7 @@ docker-compose up -d
 
 ## Evaluation Criteria
 
-This section demonstrates how Bhramana.ai meets all the evaluation requirements:
+This section demonstrates how Brahman.ai meets all the evaluation requirements:
 
 ### Problem Description
 The problem is well-described and it's clear what problem the project solves. See [Problem Statement](#problem-statement) section above for detailed analysis of traveler pain points and how our AI assistant addresses them.
@@ -281,9 +281,9 @@ Multiple retrieval approaches are evaluated, and the best one is used:
 **Winner: RRF Hybrid Search** - Best overall performance with highest MRR (0.298) and competitive Hit Rate @5 (0.460)
 
 **Evaluation Notebooks:**
-- [`notebooks/3_keyword_search_evaluation_minsearch.ipynb`](https://github.com/Adityagurung/Bhramana.ai/blob/main/notebooks/3_keyword_search_evaluation_minsearch.ipynb)
-- [`notebooks/4_semantic_search_evaluation_qdrant.ipynb`](https://github.com/Adityagurung/Bhramana.ai/blob/bf91765c15692164b3bc19f8aa5005838c456255/notebooks/4_semantic_search_evaluation_qdrant.ipynb)
-- [`notebooks/5_hybrid_search_evaluation_qdrant.ipynb`](https://github.com/Adityagurung/Bhramana.ai/blob/main/notebooks/5_hybrid_search_evaluation_qdrant.ipynb)
+- [`notebooks/3_keyword_search_evaluation_minsearch.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/main/notebooks/3_keyword_search_evaluation_minsearch.ipynb)
+- [`notebooks/4_semantic_search_evaluation_qdrant.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/bf91765c15692164b3bc19f8aa5005838c456255/notebooks/4_semantic_search_evaluation_qdrant.ipynb)
+- [`notebooks/5_hybrid_search_evaluation_qdrant.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/main/notebooks/5_hybrid_search_evaluation_qdrant.ipynb)
 
 ### RAG Evaluation
 Multiple RAG approaches are evaluated, and the best one is used:
@@ -300,7 +300,7 @@ Cosine similarity scores with different models on a sample size data [results](r
 - **Metrics**: Relevance classification, response time, token usage, costs
 - **Models Compared**: GPT-3.5-turbo, GPT-4o, GPT-4o-mini, Ollama Phi3
 
-**Evaluation Notebook:** [`notebooks/offline-rag-evaluation.ipynb`](https://github.com/Adityagurung/Bhramana.ai/blob/3b4f19ef13b21bd96088ed297a0e8babdd2b9af0/notebooks/offline-rag-evaluation.ipynb)
+**Evaluation Notebook:** [`notebooks/offline-rag-evaluation.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/3b4f19ef13b21bd96088ed297a0e8babdd2b9af0/notebooks/offline-rag-evaluation.ipynb)
 
 ### Interface
 Streamlit is used as the main interface:
@@ -315,7 +315,7 @@ Streamlit is used as the main interface:
 - **Response Metrics**: Display response time and relevance scores
 - **Conversation History**: Track previous interactions
 
-  **File:** [`app/app.py`](https://github.com/Adityagurung/Bhramana.ai/blob/799898da2efd95ae3358cefaf3f8cfadb44de93e/app/app.py)
+  **File:** [`app/app.py`](https://github.com/Adityagurung/Brahman.ai/blob/799898da2efd95ae3358cefaf3f8cfadb44de93e/app/app.py)
 
 ### Ingestion
 **Ingestion Pipeline Components:**
@@ -326,9 +326,9 @@ Streamlit is used as the main interface:
 5. **Database Storage**: Automated indexing in Qdrant
 
 **Automated Execution:**
-- **Setup Script**: [`app/setup.py`](https://github.com/Adityagurung/Bhramana.ai/blob/237e5a349f01785ab537bd0fcf634c496f36b44e/app/setup.py) runs the complete ingestion pipeline
-- **Processing Notebook**: [`notebooks/1_process_pdf2Jsonl.ipynb`](https://github.com/Adityagurung/Bhramana.ai/blob/38691d2e41d00408cc939daf3bed3e6216d31e59/notebooks/1_process_pdf2Jsonl.ipynb), [`transformers/chunks.ipynb`](transformers/chunks.ipynb)
-- **Ground Truth Generation**: [`notebooks/2_ground_truth_data.ipynb`](https://github.com/Adityagurung/Bhramana.ai/blob/8c99dea46a4b44e7f068a571cee46ca66eed68c2/notebooks/2_ground_truth_data.ipynb)
+- **Setup Script**: [`app/setup.py`](https://github.com/Adityagurung/Brahman.ai/blob/237e5a349f01785ab537bd0fcf634c496f36b44e/app/setup.py) runs the complete ingestion pipeline
+- **Processing Notebook**: [`notebooks/1_process_pdf2Jsonl.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/38691d2e41d00408cc939daf3bed3e6216d31e59/notebooks/1_process_pdf2Jsonl.ipynb), [`transformers/chunks.ipynb`](transformers/chunks.ipynb)
+- **Ground Truth Generation**: [`notebooks/2_ground_truth_data.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/8c99dea46a4b44e7f068a571cee46ca66eed68c2/notebooks/2_ground_truth_data.ipynb)
 
 ### Monitoring
 
@@ -352,7 +352,7 @@ User feedback is collected and there's a dashboard with different comprehensive 
 - **User Feedback**: Thumbs up/down collection system
 - **Cost Tracking**: Detailed OpenAI API cost monitoring
 
-  **Files:** [`grafana/dashboard.json`](https://github.com/Adityagurung/Bhramana.ai/blob/868d444a3b142098d9498455df30c7358509bf46/grafana/dashboard.json), [`grafana/init.py`](https://github.com/Adityagurung/Bhramana.ai/blob/d72073aa39f42b21c2e82fa1427b5115025eb87b/grafana/init.py)
+  **Files:** [`grafana/dashboard.json`](https://github.com/Adityagurung/Brahman.ai/blob/868d444a3b142098d9498455df30c7358509bf46/grafana/dashboard.json), [`grafana/init.py`](https://github.com/Adityagurung/Brahman.ai/blob/d72073aa39f42b21c2e82fa1427b5115025eb87b/grafana/init.py)
 
 ### Containerization
 
@@ -378,17 +378,17 @@ Complete step-by-step instructions provided for Windows 11. See [`Reproducibilit
 **Hybrid Search**: ✅
 - Combines dense semantic vectors (Jina embeddings) with sparse BM25 vectors
 - RRF (Reciprocal Rank Fusion) for optimal result combination
-- **Notebook**: [`notebooks/5_hybrid_search_evaluation.ipynb`](https://github.com/Adityagurung/Bhramana.ai/blob/451b633e265a16223b05b44ae44b1047b01d850b/notebooks/5_hybrid_search_evaluation_qdrant.ipynb)
+- **Notebook**: [`notebooks/5_hybrid_search_evaluation.ipynb`](https://github.com/Adityagurung/Brahman.ai/blob/451b633e265a16223b05b44ae44b1047b01d850b/notebooks/5_hybrid_search_evaluation_qdrant.ipynb)
 
 **Document Re-ranking**: ✅
 - RRF algorithm re-ranks results from multiple search strategies
 - Multi-stage search with dense prefetch followed by sparse re-ranking
-- **Implementation**: [`rag.py`](https://github.com/Adityagurung/Bhramana.ai/blob/9030456007b3ba6ad762b2347320e56ac7e2b4fd/app/rag.py)
+- **Implementation**: [`rag.py`](https://github.com/Adityagurung/Brahman.ai/blob/9030456007b3ba6ad762b2347320e56ac7e2b4fd/app/rag.py)
 
 **User Query Rewriting**: ✅
 - Travel-specific prompt template optimizes queries for domain context
 - Context-aware prompt engineering for better LLM responses
-- **Implementation**: [`app/app.py`](https://github.com/Adityagurung/Bhramana.ai/blob/799898da2efd95ae3358cefaf3f8cfadb44de93e/app/app.py)
+- **Implementation**: [`app/app.py`](https://github.com/Adityagurung/Brahman.ai/blob/799898da2efd95ae3358cefaf3f8cfadb44de93e/app/app.py)
 
 ### Deployment
 **Status: Planned**
@@ -402,7 +402,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ```
 MIT License
 
-Copyright (c) 2024 Bhramana.ai
+Copyright (c) 2024 Brahman.ai
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -433,4 +433,4 @@ Special thanks to:
 
 email - `aditya.gurung03@outlook.com`
 
-*For questions, issues, or contributions, please visit my [GitHub repository](https://github.com/Adityagurung/Bhramana.ai).*
+*For questions, issues, or contributions, please visit my [GitHub repository](https://github.com/Adityagurung/Brahman.ai).*

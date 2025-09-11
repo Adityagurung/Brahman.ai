@@ -135,7 +135,7 @@ def main():
         layout="wide"
     )
     
-    st.title("🌍 Bhramana.ai - Your Smart Travel Assistant")
+    st.title("🌍 Brahman.ai - Your Smart Travel Assistant")
     st.markdown("Hi! I'm here to help you plan your next adventure. Ask me anything about travel destinations, tips, and more! ✈️🌴😎") 
 
     # Session state initialization
@@ -339,7 +339,7 @@ def main():
     st.markdown(
         """
         <div style='text-align: center'>
-            <p><em>Bhramana.ai - Powered by AI</em></p>
+            <p><em>Brahman.ai - Powered by AI</em></p>
             <p><small>💡 Tip: Use Ctrl+Enter or click the blue arrow to submit quickly!</small></p>
         </div>
         """, 

@@ -17,7 +17,7 @@ GRAFANA_PASSWORD = os.getenv("GRAFANA_ADMIN_PASSWORD", "admin")
 
 # Postgres (inside Docker network)
 PG_HOST = os.getenv("POSTGRES_HOST", "postgres")
-PG_DB = os.getenv("POSTGRES_DB", "Bhramana")
+PG_DB = os.getenv("POSTGRES_DB", "Brahman")
 PG_USER = os.getenv("POSTGRES_USER", "admin")
 PG_PASSWORD = os.getenv("POSTGRES_PASSWORD", "admin")
 PG_PORT = os.getenv("POSTGRES_PORT", "5432")
