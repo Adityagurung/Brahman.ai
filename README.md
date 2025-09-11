@@ -18,7 +18,7 @@ https://github.com/user-attachments/assets/17bf15ce-a2bf-40f6-abb0-05ffb3168083
 
 ## Project Overview
 
-Brahmana or Bhramana is a Sanskrit word meaning wandering, touring, or travelling. Brahman.ai is a sophisticated Retrieval-Augmented Generation (RAG) system designed specifically for travel planning,destination discovery and cultural experience. This intelligent travel assistant system processes documents from raw files which creates a comprehensive knowledge base that combines the power of vector databases, multiple search strategies, and large language models to provide accurate, contextual, and helpful travel recommendations.
+Brahman or Bhramana is a Sanskrit word meaning wandering, touring, or travelling. Brahman.ai is a sophisticated Retrieval-Augmented Generation (RAG) system designed specifically for travel planning,destination discovery and cultural experience. This intelligent travel assistant system processes documents from raw files which creates a comprehensive knowledge base that combines the power of vector databases, multiple search strategies, and large language models to provide accurate, contextual, and helpful travel recommendations.
 
 **Key Features:**
 - **Multi-Modal Search**: Combines semantic search, keyword search, and hybrid approaches
